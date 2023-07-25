@@ -81,7 +81,7 @@ const RegisterCustomer = () => {
                         >
                             <Form.Item style={{ marginBottom: 3 }}>
 
-                                <Divider style={{ marginBottom: 5, fontSize: 19 }} orientation="center">BOOKING!</Divider>
+                                <Divider style={{ marginBottom: 5, fontSize: 19 }} orientation="center">HOTELOKA!</Divider>
                             </Form.Item>
                             <Form.Item style={{ marginBottom: 16 }}>
                                 <p className="text">Đăng Kí Tài Khoản công ty</p>

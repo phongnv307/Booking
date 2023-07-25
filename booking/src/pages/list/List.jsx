@@ -231,15 +231,6 @@ const List = () => {
         <MailList />
       </div>
       <div style={{ "margin-top": "15px" }}></div>
-      {/* <marquee className="floating-text">
-        <img style={{width:"40px",height:"40px"}} src="https://cdn.123job.vn/123job/uploads/2021/04/02/2021_04_02______54181f0453a11f33299f4bae14c12353.jpg" alt="" />
-       
-         <span style={{"fontSize": "20px","margin-left":"30px"}}>University of Technology and Education </span>
-         <span style={{"margin-left":"60px","fontSize": "20px" }}>Đồ án 2:Website đạt phòng khách sạn</span> 
-         <span style={{"margin-left":"60px","fontSize": "20px" }}>GVHD:Trương Quang Phúc</span> 
-
-       
-      </marquee> */}
       <div style={{ "margin-top": "20px" }}>
         {/* <Footer /> */}
       </div>

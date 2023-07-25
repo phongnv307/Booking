@@ -128,7 +128,7 @@ const Tour = () => {
           </span>
         </div>
         <div className="tourDes" data-aos="fade-left">
-          Most searched and booked tours recommended by Booking
+          
         </div>
         <Slider {...settings}>
           {filteredData.map((item, idx) => (
@@ -168,7 +168,7 @@ const Tour = () => {
                       src="https://cdn-icons-png.flaticon.com/512/5579/5579187.png"
                       alt=""
                     />
-                    <span>{item.price?.toLocaleString('vi', { style: 'currency', currency: 'VND' })}</span>
+                    <span>{item.price?.toLocaleString('vi', { style: 'currency', currency: 'USD' })}</span>
                   </div>
                   <div className="detail">
                    

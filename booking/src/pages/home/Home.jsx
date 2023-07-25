@@ -58,7 +58,7 @@ const Home = () => {
             </span>
           </div>
           <div className="homeTitle-desc" data-aos="fade-left">
-            Most searched and booked tours recommended by Booking
+            
           </div>
           <Featured />
           <h1 className="homeTitle">Browse by property type</h1>
@@ -66,17 +66,6 @@ const Home = () => {
           <Why />
           <MailList />
           {/* <Footer /> */}
-          {/* <marquee className="floating-text">
-            <span style={{ fontSize: "20px", "margin-left": "30px" }}>
-              Ho Chi Minh University of Technology and Education{" "}
-            </span>
-            <span style={{ "margin-left": "60px", fontSize: "20px" }}>
-              Topic: Web design for booking using MERN Stack
-            </span>
-            <span style={{ "margin-left": "60px", fontSize: "20px" }}>
-              GVHD: Truong Quang Phuc
-            </span>
-          </marquee> */}
         </div>
       </div>
       {modal && <Modal />}

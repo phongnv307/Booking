@@ -335,13 +335,13 @@ const ProductList = () => {
             width: '10%'
         },
         {
-            title: 'Tên cơ sở',
+            title: 'Tên công ty',
             dataIndex: 'name',
             key: 'name',
             render: (text) => <a>{text}</a>,
         },
         {
-            title: 'Tên bài viết',
+            title: 'Tên khách sạn',
             dataIndex: 'title',
             key: 'title',
             render: (text) => <a>{text}</a>,
@@ -439,13 +439,13 @@ const ProductList = () => {
             width: '10%'
         },
         {
-            title: 'Tên cơ sở',
+            title: 'Tên công ty',
             dataIndex: 'name',
             key: 'name',
             render: (text) => <a>{text}</a>,
         },
         {
-            title: 'Tên bài viết',
+            title: 'Tên khách sạn',
             dataIndex: 'title',
             key: 'title',
             render: (text) => <a>{text}</a>,

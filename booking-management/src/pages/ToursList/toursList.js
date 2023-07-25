@@ -321,7 +321,7 @@ const ProductList = () => {
             width: '10%'
         },
         {
-            title: 'Tên bài viết',
+            title: 'Tên tour',
             dataIndex: 'title',
             key: 'title',
             render: (text) => <a>{text}</a>,
@@ -342,12 +342,6 @@ const ProductList = () => {
             title: 'Giá gốc',
             key: 'price',
             dataIndex: 'price',
-        },
-        {
-            title: 'Số phòng',
-            key: 'roomNumbers',
-            dataIndex: 'roomNumbers',
-            render: (rooms) => <div>{rooms.length}</div>,
         },
         {
             title: 'Thành phố',
@@ -431,7 +425,7 @@ const ProductList = () => {
             width: '10%'
         },
         {
-            title: 'Tên bài viết',
+            title: 'Tên tour',
             dataIndex: 'title',
             key: 'title',
             render: (text) => <a>{text}</a>,
@@ -452,12 +446,6 @@ const ProductList = () => {
             title: 'Giá gốc',
             key: 'price',
             dataIndex: 'price',
-        },
-        {
-            title: 'Số phòng',
-            key: 'roomNumbers',
-            dataIndex: 'roomNumbers',
-            render: (rooms) => <div>{rooms.length}</div>,
         },
         {
             title: 'Thành phố',

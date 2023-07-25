@@ -113,7 +113,7 @@ const Profile = () => {
                                 </Card>
                             </Col>
 
-                            <Col span="6" style={{ marginTop: 20 }}>
+                            {/* <Col span="6" style={{ marginTop: 20 }}>
                             <ReactWeather
                                     isLoading={isLoading}
                                     errorMessage={errorMessage}
@@ -123,7 +123,7 @@ const Profile = () => {
                                     unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
                                     showForecast
                                 />
-                            </Col>
+                            </Col> */}
                         </Row>
                     </div>
                 </div>

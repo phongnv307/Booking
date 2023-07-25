@@ -34,7 +34,7 @@ const Why = () => {
     <div className="whyContainer">
       <div className="why">
         <div className="whyTitle" data-aos= "fade-down">
-          <h1>Why book with Booking?</h1>
+          <h1>Why book with Hoteloka?</h1>
         </div>
         <div className="whyContent">
           {data.map((item) => (

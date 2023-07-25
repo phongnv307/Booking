@@ -168,12 +168,12 @@ export default class Slideshow extends React.Component {
             );
           })}
 
-          <span className="prev" onClick={this.backward}>
+          {/* <span className="prev" onClick={this.backward}>
             ❮
           </span>
           <span className="next" onClick={this.forward}>
             ❯
-          </span>
+          </span> */}
         </div>
 {/* 
         <div className="dot-container">

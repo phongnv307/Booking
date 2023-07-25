@@ -71,7 +71,7 @@ const Navbar = ({ type, register, login }) => {
     <div className={type === "list" ? "Navbar nav-listMode" : "Navbar"}>
       <div className="navContainer">
         <Link to="/" className="logo-wrapper">
-          <span className="logo" data-aos= "fade-down">{text}</span>
+          <span className="logo" data-aos= "fade-down">Hoteloka</span>
           {/* <img
             className="img-logo"
             src="https://cdn-icons-png.flaticon.com/512/6348/6348608.png"

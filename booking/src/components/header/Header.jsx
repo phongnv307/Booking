@@ -139,9 +139,6 @@ const Header = ({ type, openDate, handleOpenDate }) => {
                 There’s still time to tick one more destination off your
                 wishlist
               </p>
-              <button className="headerBtn" data-aos="fade-up">
-                Explore deal
-              </button>
             </div>
             <div className="headerSearch">
               <div className="headerSearchItem">

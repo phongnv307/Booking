@@ -109,7 +109,7 @@ const Hotel = () => {
 
   const content =
   {
-    "air-conditioning": "https://s3-ap-southeast-1.amazonaws.com/cntres-assets-ap-southeast-1-250226768838-cf675839782fd369/imageResource/2016/12/21/1482301285653-0a04df7d3f807b32484ceec10d9681c6.png",
+    "air-conditioner": "https://s3-ap-southeast-1.amazonaws.com/cntres-assets-ap-southeast-1-250226768838-cf675839782fd369/imageResource/2016/12/21/1482301285653-0a04df7d3f807b32484ceec10d9681c6.png",
     "swimming-pool": "https://s3-ap-southeast-1.amazonaws.com/cntres-assets-ap-southeast-1-250226768838-cf675839782fd369/imageResource/2017/06/07/1496833772013-929572dff57d1755878aa79dc46e6be5.png",
     "24-hour-front-desk": "https://s3-ap-southeast-1.amazonaws.com/cntres-assets-ap-southeast-1-250226768838-cf675839782fd369/imageResource/2016/12/21/1482301381776-c014a3111a6de5236d903c93b7647e4c.png",
     "parking": "https://s3-ap-southeast-1.amazonaws.com/cntres-assets-ap-southeast-1-250226768838-cf675839782fd369/imageResource/2017/06/07/1496833756238-56e24fb64a964d38b8f393bf093a77a9.png",
@@ -199,14 +199,14 @@ const Hotel = () => {
               notification["error"]({
                 message: `Thông báo`,
                 description:
-                  'Booking tours thất bại',
+                  'Booking phòng thất bại',
               });
             }
             else {
               notification["success"]({
                 message: `Thông báo`,
                 description:
-                  'Booking tours thành công',
+                  'Booking phòng thành công',
               });
             }
           setModalVisible(false);
@@ -400,7 +400,7 @@ const Hotel = () => {
           )}
           <div className="hotelWrapper">
             {/* <button className="bookNow">Reserve or Book Now!</button> */}
-            <h1 className="hotelTitle">{data.name}</h1>
+            <h1 className="hotelTitle">{data.title}</h1>
             <div className="hotelAddresContainer">
               <div className="hotelAddress">
                 <img
@@ -524,10 +524,7 @@ const Hotel = () => {
               <div className="hotelBox">
                 <div className="boxTop">
                   <div className="boxTop-left">
-                    <img
-                      src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/best-price-icon.png"
-                      alt=""
-                    />
+                    
                     <span className="price">{data.cheapestPrice} USD </span>
                     <span>/per day</span>
                   </div>

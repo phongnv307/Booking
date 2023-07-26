@@ -261,6 +261,7 @@ const ProductList = () => {
                 address: response.address,
                 title: response.title,
                 cheapestPrice: response.cheapestPrice,
+                type: response.type,
                 photos: response.photos,
                 rooms: roomsInResponse,
                 utilities: response.utilities
@@ -352,6 +353,11 @@ const ProductList = () => {
             dataIndex: 'cheapestPrice',
         },
         {
+            title: 'Loại',
+            dataIndex: 'type',
+            key: 'type',
+        },
+        {
             title: 'Số phòng',
             key: 'rooms',
             dataIndex: 'rooms',
@@ -361,16 +367,6 @@ const ProductList = () => {
             title: 'Thành phố',
             dataIndex: 'city',
             key: 'city',
-        },
-        {
-            title: 'Đặc biệt',
-            dataIndex: 'featured',
-            key: 'featured',
-            render: (res) => (
-                <span>
-                    {res ? "Có" : "không"}
-                </span>
-            ),
         },
         {
             title: 'Phê duyệt',
@@ -456,6 +452,11 @@ const ProductList = () => {
             dataIndex: 'cheapestPrice',
         },
         {
+            title: 'Loại',
+            dataIndex: 'type',
+            key: 'type',
+        },
+        {
             title: 'Số phòng',
             key: 'rooms',
             dataIndex: 'rooms',
@@ -465,16 +466,6 @@ const ProductList = () => {
             title: 'Thành phố',
             dataIndex: 'city',
             key: 'city',
-        },
-        {
-            title: 'Đặc biệt',
-            dataIndex: 'featured',
-            key: 'featured',
-            render: (res) => (
-                <span>
-                    {res ? "Có" : "không"}
-                </span>
-            ),
         },
         {
             title: 'Phê duyệt',

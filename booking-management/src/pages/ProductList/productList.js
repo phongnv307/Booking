@@ -23,11 +23,14 @@ const { Title } = Typography;
 const DATE_TIME_FORMAT = "DD/MM/YYYY HH:mm";
 
 const citiesArr = [
-    { name: "Hà Nội", value: "hanoi" },
-    { name: "Đà Nẵng", value: "danang" },
-    { name: "Đà Lạt", value: "dalat" },
-    { name: "Vũng Tàu", value: "vungtau" },
+    { name: "Hà Nội", value: "hanoi" },  
+    { name: "Đà Lạt", value: "dalat" }, 
     { name: "Hồ Chí Minh", value: "hochiminh" },
+    { name: "Vũng Tàu", value: "vungtau" },
+    { name: "Đà Nẵng", value: "danang" },
+    { name: "Nha Trang", value: "nhatrang" },
+    { name: "Huế", value: "hue" },
+    { name: "Hải Phòng", value: "haiphong" },
 ];
 
 const ProductList = () => {
@@ -752,7 +755,7 @@ const ProductList = () => {
                         >
                             <Select mode="multiple" placeholder="Chọn phòng">
                                 {roomsList
-                                    .filter((room) => room.booked === false)
+                                    .filter((room) => room.booked === true)
                                     .map((room) => (
                                         <Select.Option key={room._id} value={room._id}>
                                             {room.title}
@@ -985,7 +988,7 @@ const ProductList = () => {
                         >
                             <Select mode="multiple" placeholder="Chọn phòng">
                                 {roomsList
-                                    .filter((room) => room.booked === false)
+                                    .filter((room) => room.booked === true)
                                     .map((room) => (
                                         <Select.Option key={room._id} value={room._id}>
                                             {room.title}

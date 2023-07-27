@@ -19,10 +19,12 @@ const SearchItem = ({ item }) => {
         <span className="siSubtitle">
           Studio Apartment with Air conditioning
         </span>
-        <span
+        {/* <span
           className="siFeatures"
           dangerouslySetInnerHTML={{ __html: item.desc }}
-        />        <span className="siCancelOp">Free cancellation </span>
+        />  */}
+        {/* <span className="siFeatures">{ item.desc } </span>        */}
+        <span className="siCancelOp">Free cancellation </span>
         <span className="siCancelOpSubtitle">
           You can cancel later, so lock in this great price today!
         </span>

@@ -197,7 +197,7 @@ const Hotel = () => {
             return notification["error"]({
               message: `Thông báo`,
               description:
-                'Rooms đã được book ở ngày bạn đã chọn! Vui lòng chọn lại',
+                'Đã kín phòng vào ngày bạn chọn, vui lòng chọn phòng khác',
             });
           } else
             if (response === undefined) {
@@ -552,8 +552,8 @@ const Hotel = () => {
                 <div className="boxTop">
                   <div className="boxTop-left">
                     
-                    <span className="price">{data.cheapestPrice} USD </span>
-                    <span>/per day</span>
+                    <span className="price">{data.cheapestPrice} US$ <a>/ day</a></span>
+                    
                   </div>
                   <div className="boxTop-right"></div>
                 </div>
@@ -567,6 +567,9 @@ const Hotel = () => {
                     <input type="date" id="date" />
                     <label htmlFor="date"></label>
                   </div> */}
+                  <span
+          dangerouslySetInnerHTML={{ __html: data.desc }}
+        />
                 </div>
                 {/* <div className="boxBot">
                   <div className="botPrice flexx">

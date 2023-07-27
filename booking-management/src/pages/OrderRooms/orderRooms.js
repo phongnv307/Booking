@@ -222,10 +222,34 @@ const OrderRooms = () => {
             render: (text, record) => <a>{text.username}</a>,
         },
         {
-            title: 'Tên room',
+            title: 'Số điện thoại',
+            dataIndex: 'user',
+            key: 'user',
+            render: (text, record) => <a>{text.phone}</a>,
+        },
+        {
+            title: 'Email',
+            dataIndex: 'user',
+            key: 'user',
+            render: (text, record) => <a>{text.email}</a>,
+        },
+        {
+            title: 'Tên phòng',
             dataIndex: 'room',
             key: 'room',
             render: (text) => <a>{text?.title}</a>,
+        },
+        {
+            title: 'Ngày nhận phòng',
+            dataIndex: 'checkInDate',
+            key: 'checkInDate',
+            render: (text) => <a>{new Date(text).toLocaleDateString()}</a>,
+        },
+        {
+            title: 'Ngày trả phòng',
+            dataIndex: 'checkOutDate',
+            key: 'checkOutDate',
+            render: (text) => <a>{new Date(text).toLocaleDateString()}</a>,
         },
         {
             title: 'Tổng tiền',
@@ -237,18 +261,6 @@ const OrderRooms = () => {
             title: 'Hình thức thanh toán',
             dataIndex: 'billing',
             key: 'billing',
-        },
-        {
-            title: 'Số điện thoại',
-            dataIndex: 'user',
-            key: 'user',
-            render: (text, record) => <a>{text.phone}</a>,
-        },
-        {
-            title: 'Email',
-            dataIndex: 'user',
-            key: 'user',
-            render: (text, record) => <a>{text.email}</a>,
         },
         {
             title: 'Trạng thái',
@@ -277,23 +289,6 @@ const OrderRooms = () => {
             render: (text, record) => <a>{text.username}</a>,
         },
         {
-            title: 'Tên room',
-            dataIndex: 'room',
-            key: 'room',
-            render: (text) => <a>{text?.title}</a>,
-        },
-        {
-            title: 'Tổng tiền',
-            dataIndex: 'total',
-            key: 'total',
-            render: (text) => <a>{text}</a>,
-        },
-        {
-            title: 'Hình thức thanh toán',
-            dataIndex: 'billing',
-            key: 'billing',
-        },
-        {
             title: 'Số điện thoại',
             dataIndex: 'user',
             key: 'user',
@@ -304,6 +299,34 @@ const OrderRooms = () => {
             dataIndex: 'user',
             key: 'user',
             render: (text, record) => <a>{text?.email}</a>,
+        },
+        {
+            title: 'Tên phòng',
+            dataIndex: 'room',
+            key: 'room',
+            render: (text) => <a>{text?.title}</a>,
+        },
+        {
+            title: 'Ngày nhận phòng',
+            dataIndex: 'checkInDate',
+            key: 'checkInDate',
+            render: (text) => <a>{new Date(text).toLocaleDateString()}</a>,
+        },
+        {
+            title: 'Ngày trả phòng',
+            dataIndex: 'checkOutDate',
+            key: 'checkOutDate',
+            render: (text) => <a>{new Date(text).toLocaleDateString()}</a>,
+        },
+        {
+            title: 'Tổng tiền',
+            dataIndex: 'total',
+            key: 'total',
+        },
+        {
+            title: 'Hình thức thanh toán',
+            dataIndex: 'billing',
+            key: 'billing',
         },
         {
             title: 'Trạng thái',

@@ -24,7 +24,7 @@ const RoomSchema = new mongoose.Schema(
     },
     booked: {
       type: Boolean,
-      default: false
+      default: true
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,

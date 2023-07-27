@@ -8,7 +8,7 @@ export const createRoom = async (req, res, next) => {
   const decodedToken = jwt.verify(req.headers.authorization, process.env.JWT);
   const createdBy = decodedToken.id;
   const roomOrder = 0;
-  const booked = false;
+  const booked = true;
   try {
     const { title, price, maxPeople, desc, typeRooms, roomQuantity } = req.body;
     const room = new Room({ title, price, maxPeople, desc, createdBy, typeRooms, roomQuantity, roomOrder, booked });
@@ -118,22 +118,23 @@ export const bookingRooms = async (req, res) => {
   try {
     const { roomId, userId, bookingDetails, billing, checkInDate, checkOutDate, total } = req.body;
 
-    // Check if the room is available for booking in the given date range
-    const existingBooking = await BookingRooms.findOne({
-      room: roomId,
-      checkInDate: { $lte: new Date(checkOutDate) },
-      checkOutDate: { $gte: new Date(checkInDate) }
-    });
-
-    if (existingBooking) {
-      return res.status(200).json({ message: 'Room is already booked for the selected dates' });
-    }
-
     const rooms = await Room.findById(roomId);
 
     if (!rooms) {
       return res.status(404).json({ message: 'Tour not found' });
     }
+
+    // Check if the room is available for booking in the given date range
+    const existingBooking = await BookingRooms.count({
+      room: roomId,
+      checkInDate: { $lte: new Date(checkOutDate) },
+      checkOutDate: { $gte: new Date(checkInDate) }
+    });
+
+    if (existingBooking >= rooms.roomQuantity) {
+      return res.status(200).json({ message: 'Room is already booked for the selected dates' });
+    }
+
 
     console.log()
 
@@ -155,7 +156,7 @@ export const bookingRooms = async (req, res) => {
     await booking.save();
 
     // Increment the roomOrder by 1 for the booked room
-    rooms.roomOrder += 1;
+    rooms.roomOrder += 0;
     await rooms.save();
 
     return res.status(201).json({ message: 'Booking successful', booking });

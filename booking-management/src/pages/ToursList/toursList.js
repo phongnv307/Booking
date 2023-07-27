@@ -54,10 +54,9 @@ const ProductList = () => {
         try {
             const tourData = {
                 title: values.title,
-                photos: [values.photos],
+                photos: images,
                 price: values.price,
                 address: values.address,
-                rating: values.rating,
                 desc: values.desc,
                 text: values.text,
                 schedule: values.schedule,
@@ -67,7 +66,6 @@ const ProductList = () => {
                 departure: values.departure,
                 destination: values.destination,
                 vehicles: values.vehicles,
-                photos: images
             };
             return axiosClient.post("/tours", tourData).then(response => {
                 if (response === undefined) {
@@ -99,10 +97,9 @@ const ProductList = () => {
         try {
             const tourData = {
                 title: values.title,
-                photos: [values.photos],
+                photos: images,
                 price: values.price,
                 address: values.address,
-                rating: values.rating,
                 desc: values.desc,
                 text: values.text,
                 schedule: values.schedule,
@@ -112,7 +109,6 @@ const ProductList = () => {
                 departure: values.departure,
                 destination: values.destination,
                 vehicles: values.vehicles,
-                photos: images // Sử dụng state 'images' chứa các URL hình ảnh
             };
 
             // Gọi API cập nhật tour với dữ liệu mới
@@ -145,37 +141,37 @@ const ProductList = () => {
         } else {
             setOpenModalUpdate(false)
         }
-        console.log('Clicked cancel button');
+        // console.log('Clicked cancel button');
     };
 
     const handleProductList = async () => {
         try {
             const user = localStorage.getItem("user");
-            console.log(user); // check if the value is null or undefined
+            // console.log(user); // check if the value is null or undefined
             const userParse = JSON.parse(user);
             setUser(userParse);
             if (userParse.role === "isCompany") {
                 await productApi.getToursListByCompany().then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     setProduct(res);
                     setLoading(false);
                 });
             } else {
                 await productApi.getToursList().then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     setProduct(res);
                     setLoading(false);
                 });
             }
 
             await productApi.getListCategory({ page: 1, limit: 10000 }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setCategoryList(res.data.docs);
                 setLoading(false);
             });
             ;
         } catch (error) {
-            console.log('Failed to fetch event list:' + error);
+            // console.log('Failed to fetch event list:' + error);
         }
     };
 
@@ -207,7 +203,7 @@ const ProductList = () => {
             );
 
         } catch (error) {
-            console.log('Failed to fetch event list:' + error);
+            // console.log('Failed to fetch event list:' + error);
         }
     }
 
@@ -224,7 +220,7 @@ const ProductList = () => {
         (async () => {
             try {
                 const response = await productApi.getDetailTour(id);
-                console.log(response);
+                // console.log(response);
                 setId(id);
                 setTours(response);
                 form2.setFieldsValue({
@@ -240,9 +236,9 @@ const ProductList = () => {
                     departure: response.departure,
                     destination: response.destination,
                     vehicles: response.vehicles,
-                    images: response.images
+                    photos: response.photos
                 });
-                console.log(form2);
+                // console.log(form2);
                 setDescription(response.description);
                 setLoading(false);
             } catch (error) {
@@ -254,7 +250,7 @@ const ProductList = () => {
     const handleFilter = async (name) => {
         try {
             const user = localStorage.getItem("user");
-            console.log(user); // check if the value is null or undefined
+            // console.log(user); // check if the value is null or undefined
             const userParse = JSON.parse(user);
             if (userParse.role === "isCompany") {
                 const res = await productApi.searchTour(name);
@@ -266,12 +262,12 @@ const ProductList = () => {
                 setProduct(res);
             }
         } catch (error) {
-            console.log('search to fetch tours list:' + error);
+            // console.log('search to fetch tours list:' + error);
         }
     }
 
     const handleChange = (content) => {
-        console.log(content);
+        // console.log(content);
         setDescription(content);
     }
 
@@ -303,7 +299,7 @@ const ProductList = () => {
             );
 
         } catch (error) {
-            console.log('Failed to fetch event list:' + error);
+            // console.log('Failed to fetch event list:' + error);
         }
     }
 
@@ -327,6 +323,12 @@ const ProductList = () => {
             render: (text) => <a>{text}</a>,
         },
         {
+            title: 'Địa điểm',
+            key: 'address',
+            dataIndex: 'address',
+            render: (address) => <div>{address}</div>,
+        },
+        {
             title: 'Điểm đi',
             key: 'departure',
             dataIndex: 'departure',
@@ -339,14 +341,14 @@ const ProductList = () => {
             render: (destination) => <div>{destination}</div>,
         },
         {
-            title: 'Giá gốc',
+            title: 'Giá',
             key: 'price',
             dataIndex: 'price',
         },
         {
-            title: 'Thành phố',
-            dataIndex: 'destination',
-            key: 'destination',
+            title: 'Thời gian',
+            dataIndex: 'time',
+            key: 'time',
         },
         {
             title: 'Đánh giá',
@@ -431,26 +433,32 @@ const ProductList = () => {
             render: (text) => <a>{text}</a>,
         },
         {
+            title: 'Địa điểm',
+            key: 'address',
+            dataIndex: 'address',
+            render: (address) => <div>{address}</div>,
+        },
+        {
             title: 'Điểm đi',
-            key: 'trip',
-            dataIndex: 'trip',
-            render: (rooms) => <div>{rooms[0]}</div>,
+            key: 'departure',
+            dataIndex: 'departure',
+            render: (departure) => <div>{departure}</div>,
         },
         {
             title: 'Điểm đến',
-            key: 'trip',
-            dataIndex: 'trip',
-            render: (rooms) => <div>{rooms[1]}</div>,
+            key: 'destination',
+            dataIndex: 'destination',
+            render: (destination) => <div>{destination}</div>,
         },
         {
-            title: 'Giá gốc',
+            title: 'Giá',
             key: 'price',
             dataIndex: 'price',
         },
         {
-            title: 'Thành phố',
-            dataIndex: 'destination',
-            key: 'destination',
+            title: 'Thời gian',
+            dataIndex: 'time',
+            key: 'time',
         },
         {
             title: 'Đánh giá',
@@ -544,15 +552,15 @@ const ProductList = () => {
                 },
             }).then(response => {
                 const imageUrl = response.image_url;
-                console.log(imageUrl);
+                // console.log(imageUrl);
                 // Lưu trữ URL hình ảnh trong trạng thái của thành phần
                 setImages(prevImages => [...prevImages, imageUrl]);
 
-                console.log(images);
+                // console.log(images);
                 message.success(`${info.file.name} đã được tải lên thành công!`);
             });
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 
@@ -561,31 +569,31 @@ const ProductList = () => {
         (async () => {
             try {
                 const user = localStorage.getItem("user");
-                console.log(user); // check if the value is null or undefined
+                // console.log(user); // check if the value is null or undefined
                 const userParse = JSON.parse(user);
                 setUser(userParse);
                 if (userParse.role === "isCompany") {
                     await productApi.getToursListByCompany().then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         setProduct(res);
                         setLoading(false);
                     });
                 } else {
                     await productApi.getToursList().then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         setProduct(res);
                         setLoading(false);
                     });
                 }
 
                 await productApi.getListCategory({ page: 1, limit: 10000 }).then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     setCategoryList(res.data.docs);
                     setLoading(false);
                 });
                 ;
             } catch (error) {
-                console.log('Failed to fetch event list:' + error);
+                // console.log('Failed to fetch event list:' + error);
             }
         })();
     }, [])
@@ -702,16 +710,16 @@ const ProductList = () => {
 
                         <Form.Item
                             name="address"
-                            label="Địa chỉ"
+                            label="Địa điểm"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Vui lòng nhập địa chỉ!',
+                                    message: 'Vui lòng nhập địa điểm!',
                                 },
                             ]}
                             style={{ marginBottom: 10 }}
                         >
-                            <Input placeholder="Địa chỉ" />
+                            <Input placeholder="Địa điểm" />
                         </Form.Item>
 
                         <Form.Item
@@ -985,7 +993,7 @@ const ProductList = () => {
                                         handleUpdateProduct(values);
                                     })
                                     .catch((info) => {
-                                        console.log('Validate Failed:', info);
+                                        // console.log('Validate Failed:', info);
                                     });
                             }} type="primary" style={{ marginRight: 8 }}>
                                 Hoàn thành
@@ -1036,16 +1044,16 @@ const ProductList = () => {
 
                         <Form.Item
                             name="address"
-                            label="Địa chỉ"
+                            label="Địa điểm"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Vui lòng nhập địa chỉ!',
+                                    message: 'Vui lòng nhập địa điểm!',
                                 },
                             ]}
                             style={{ marginBottom: 10 }}
                         >
-                            <Input placeholder="Địa chỉ" />
+                            <Input placeholder="Địa điểm" />
                         </Form.Item>
 
                         <Form.Item

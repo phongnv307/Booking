@@ -79,14 +79,14 @@ const ProductList = () => {
                     notification["error"]({
                         message: `Thông báo`,
                         description:
-                            'Tạo sản phẩm thất bại',
+                            'Tạo khách sạn thất bại',
                     });
                 }
                 else {
                     notification["success"]({
                         message: `Thông báo`,
                         description:
-                            'Tạo sản phẩm thành công',
+                            'Tạo khách sạn thành công',
                     });
                     setOpenModalCreate(false);
                     handleProductList();

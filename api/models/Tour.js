@@ -65,23 +65,14 @@ const TourSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
-    roomNumbers: [{ number: Number, unavailableDates: { type: [Date] } }],
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    unavailableDates: {
-      type: String,
-    },
     isBooking: {
       type: Boolean,
       default: 'false'
-    },
-    bookingBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
     },
   },
   { timestamps: true }

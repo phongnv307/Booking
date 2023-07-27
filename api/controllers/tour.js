@@ -1,5 +1,6 @@
 import Tour from "../models/Tour.js";
 import Booking from "../models/Booking.js";
+import jwt from "jsonwebtoken";
 
 export const getTour = async (req, res, next) => {
   try {
@@ -19,50 +20,35 @@ export const getTours = async (req, res, next) => {
   }
 };
 
-export const createTour = async (req, res, next) => {
-  const {
-    title,
-    photos,
-    price,
-    address,
-    rating,
-    desc,
-    text,
-    schedule,
-    hightlight,
-    trip,
-    time,
-    departure,
-    destination,
-    vehicles,
-  } = req.body;
-
-  const createdBy = req.user.id; // Lấy ID của người dùng hiện tại từ xác thực
-  const tour = new Tour({
-    title,
-    photos,
-    price,
-    address,
-    rating,
-    desc,
-    text,
-    schedule,
-    hightlight,
-    trip,
-    time,
-    departure,
-    destination,
-    vehicles,
-    createdBy,
-  });
+// export const createTour = async (req, res, next) => {
+//   const { title,photos,price,address,rating,desc,text,schedule,hightlight,trip,time,departure,destination,vehicles} = req.body;
+//   const createdBy = req.user.id; // Lấy ID của người dùng hiện tại từ xác thực
+//   const tour = new Tour({title,photos,price,address,rating,desc,text,schedule,hightlight,trip,time,departure,destination,vehicles,createdBy});
   
-  tour.save()
-  .then((createdTour) => {
-    res.status(201).json(createdTour);
-  })
-  .catch((error) => {
+//   tour.save()
+//   .then((createdTour) => {
+//     res.status(201).json(createdTour);
+//   })
+//   .catch((error) => {
+//     res.status(500).json({ error: "Failed to create tour" });
+//   });
+// };
+
+export const createTour = async (req, res, next) => {
+  const decodedToken = jwt.verify(req.headers.authorization, process.env.JWT);
+  const createdBy = decodedToken.id;
+  console.log(createdBy);
+  console.log(1);
+  const rating = 9;
+  try {
+    const { title, photos, price, address, desc, text, schedule, hightlight, trip, time, departure, destination, vehicles} = req.body;
+    const tour = new Tour({ title, photos, price, address, rating, desc, text, schedule, hightlight, trip, time, departure, destination, vehicles, createdBy});
+    await tour.save();
+    res.status(201).json(tour);
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to create tour" });
-  });
+  }
 };
 
 export const getTourByCompany = async (req, res, next) => {

@@ -36,7 +36,6 @@ const Tours = () => {
   console.log(data);
 
   const includeData = [
-    { text: "4* hotel (2 guests/room)" },
     { text: "Tickets to visit the points in the program" },
     {
       text: "Enthusiastic and attentive tour guide, narrating throughout the route",
@@ -299,7 +298,7 @@ const Tours = () => {
             </div>
             <div className="toursDescription mt-3 mb-5">
               <h6>{data.desc}</h6>
-              <span>Book your tickets now to get the best deals!!!</span>
+              <span>Book your tour now to get the best deals!!!</span>
               <button className="tourBtn-book" onClick={() => setModalVisible(true)}>Book Now</button>
             </div>
 

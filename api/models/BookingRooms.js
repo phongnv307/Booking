@@ -38,6 +38,10 @@ const BookingRoomsSchema = new mongoose.Schema(
       enum: ['pending', 'approved', 'rejected'],
       default: 'pending'
     },
+    total: {
+      type: String,
+      require: true
+    }
   },
   { timestamps: true }
 );

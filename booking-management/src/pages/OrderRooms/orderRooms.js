@@ -229,9 +229,9 @@ const OrderRooms = () => {
         },
         {
             title: 'Tổng tiền',
-            dataIndex: 'room',
-            key: 'room',
-            render: (text) => <a>{text.price}</a>,
+            dataIndex: 'total',
+            key: 'total',
+            render: (text) => <a>{text}</a>,
         },
         {
             title: 'Hình thức thanh toán',
@@ -284,9 +284,9 @@ const OrderRooms = () => {
         },
         {
             title: 'Tổng tiền',
-            dataIndex: 'room',
-            key: 'room',
-            render: (text) => <a>{text?.price}</a>,
+            dataIndex: 'total',
+            key: 'total',
+            render: (text) => <a>{text}</a>,
         },
         {
             title: 'Hình thức thanh toán',

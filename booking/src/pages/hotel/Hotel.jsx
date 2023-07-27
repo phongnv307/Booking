@@ -44,6 +44,7 @@ const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [totalCost, setTotalCost] = useState(0);
 
   const { data, loading, error } = useFetch(
     `http://localhost:8800/api/hotels/find/${id}`
@@ -118,7 +119,8 @@ const Hotel = () => {
     "restaurant": "https://s3-ap-southeast-1.amazonaws.com/cntres-assets-ap-southeast-1-250226768838-cf675839782fd369/imageResource/2017/06/07/1496833794378-eb51eee62d46110b712e327108299ea6.png"
   };
 
-  const handleBooking = (roomId) => {
+  const [price, setPrice] = useState(0);
+  const handleBooking = (room) => {
     const user = localStorage.getItem("user");
     console.log(user);
     if (user === null) {
@@ -127,8 +129,10 @@ const Hotel = () => {
         description: 'Bạn phải đăng nhập trước khi thực hiện đặt phòng!',
       });
     } else {
-      setRoomsId(roomId);
-      localStorage.setItem("roomId", roomId);
+      setRoomsId(room._id);
+      localStorage.setItem("roomId", room._id);
+      localStorage.setItem("price", room.price);
+      setPrice(room.price);
       setModalVisible(true);
     }
   };
@@ -185,6 +189,7 @@ const Hotel = () => {
           billing: values.paymentMethod,
           checkInDate: values.checkInDate,
           checkOutDate: values.checkOutDate,
+          total: totalCost
         };
         return axios.post("http://localhost:8800/api/rooms/book", tourData).then(response => {
           console.log(response);
@@ -208,6 +213,9 @@ const Hotel = () => {
                 description:
                   'Booking phòng thành công',
               });
+
+              setTotalCost(0);
+
             }
           setModalVisible(false);
         })
@@ -304,6 +312,8 @@ const Hotel = () => {
         });
 
         setShowModal(false);
+        setTotalCost(0);
+
       } else {
         notification["error"]({
           message: `Thông báo`,
@@ -353,6 +363,23 @@ const Hotel = () => {
     const addressUrl = `https://maps.google.com/maps?${query}`;
 
     window.open(addressUrl, "_blank");
+  };
+
+  const handleDateChange = () => {
+    form.validateFields(['checkInDate', 'checkOutDate']).then((values) => {
+      const { checkInDate, checkOutDate } = values;
+      if (checkInDate && checkOutDate && moment(checkInDate).isValid() && moment(checkOutDate).isValid()) {
+        const numDays = checkOutDate.diff(checkInDate, 'days');
+        const cheapestPrice = price; 
+        const totalPrice = cheapestPrice * numDays;
+        setTotalCost(totalPrice);
+      } else {
+        console.log("Vui lòng chọn cả ngày check-in và check-out");
+      }
+    }).catch((error) => {
+      console.error("Lỗi xử lý promise:", error);
+      // Xử lý lỗi promise ở đây (nếu cần)
+    });
   };
 
   useEffect(() => {
@@ -484,7 +511,7 @@ const Hotel = () => {
                               <div>Max people: {room.maxPeople}</div>
                             </div>
                             <div>
-                              <Button type="primary" onClick={() => handleBooking(room._id)}>
+                              <Button type="primary" onClick={() => handleBooking(room)}>
                                 Booking
                               </Button>
                             </div>
@@ -649,7 +676,7 @@ const Hotel = () => {
             ]}
             style={{ marginBottom: 10 }}
           >
-            <DatePicker style={{ width: '100%' }} />
+            <DatePicker style={{ width: '100%' }} onChange={handleDateChange}/>
           </Form.Item>
 
           <Form.Item
@@ -664,7 +691,7 @@ const Hotel = () => {
                 validator(_, value) {
                   const checkInDate = getFieldValue('checkInDate');
                   const now = moment().startOf('day'); // Use startOf('day') to include the current day
-                  if (value && checkInDate && value <= checkInDate) {
+                  if (value && checkInDate &&  value.isSame(checkInDate, 'day')) {
                     return Promise.reject(new Error('Ngày trả phòng không thể nhỏ hơn hoặc bằng ngày nhận phòng'));
                   }
                   if (value && value < now) {
@@ -676,7 +703,7 @@ const Hotel = () => {
             ]}
             style={{ marginBottom: 10 }}
           >
-            <DatePicker style={{ width: '100%' }} />
+            <DatePicker style={{ width: '100%' }} onChange={handleDateChange}/>
           </Form.Item>
 
           <Form.Item
@@ -694,7 +721,12 @@ const Hotel = () => {
               <Radio value="cash">Tiền mặt</Radio>
               <Radio value="paypal">PayPal</Radio>
             </Radio.Group>
+
           </Form.Item>
+
+          
+
+          <p style={{ marginBottom: 10 }}>Tổng tiền: {totalCost} USD</p>
         </Form>
       </Modal>
 

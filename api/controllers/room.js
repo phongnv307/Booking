@@ -116,7 +116,7 @@ export const searchRoomsByNameAdmin = async (req,res) => {
 
 export const bookingRooms = async (req, res) => {
   try {
-    const { roomId, userId, bookingDetails, billing, checkInDate, checkOutDate } = req.body;
+    const { roomId, userId, bookingDetails, billing, checkInDate, checkOutDate, total } = req.body;
 
     // Check if the room is available for booking in the given date range
     const existingBooking = await BookingRooms.findOne({
@@ -148,7 +148,8 @@ export const bookingRooms = async (req, res) => {
       details: bookingDetails,
       billing: billing,
       checkInDate: new Date(checkInDate),
-      checkOutDate: new Date(checkOutDate)
+      checkOutDate: new Date(checkOutDate),
+      total: total
     });
 
     await booking.save();

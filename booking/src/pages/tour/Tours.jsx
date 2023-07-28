@@ -271,7 +271,7 @@ const Tours = () => {
             <div className="tourPrice mt-3 ">
               <h6 className="d-flex align-items-base-line gap-2 ">
                 Price:
-                <h5 className="d-flex mb-0">{data.price?.toLocaleString('vi', { style: 'currency', currency: 'VND' })}</h5>{" "}
+                <h5 className="d-flex mb-0">{data.price?.toLocaleString('vi', { style: 'currency', currency: 'USD' })}</h5>{" "}
               </h6>
             </div>
             <div className="tourIncludes">

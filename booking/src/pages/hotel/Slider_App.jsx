@@ -47,15 +47,9 @@ const Slider_Appp = () => {
   let img11 = data.photos?.slice(1, 2);
 
   const coll = [
+    { src: data.photos?.slice(0, 1) },
     { src: data.photos?.slice(1, 2) },
     { src: data.photos?.slice(2, 3) },
-    { src: data.photos?.slice(3, 4) },
-    { src: data.photos?.slice(4, 5) },
-    { src: data.photos?.slice(5, 6) },
-    { src: data.photos?.slice(6, 7) },
-    { src: data.photos?.slice(7, 8) },
-    { src: data.photos?.slice(8, 9) },
-    { src: data.photos?.slice(9, 10) },
   ];
   return (
     <div className="App-sl">

@@ -222,23 +222,6 @@ const OrderList = () => {
             render: (text, record) => <a>{text.username}</a>,
         },
         {
-            title: 'Tên tour',
-            dataIndex: 'tour',
-            key: 'tour',
-            render: (text) => <a>{text.title}</a>,
-        },
-        {
-            title: 'Tổng tiền',
-            dataIndex: 'tour',
-            key: 'tour',
-            render: (text) => <a>{text.price}</a>,
-        },
-        {
-            title: 'Hình thức thanh toán',
-            dataIndex: 'billing',
-            key: 'billing',
-        },
-        {
             title: 'Số điện thoại',
             dataIndex: 'user',
             key: 'user',
@@ -249,6 +232,33 @@ const OrderList = () => {
             dataIndex: 'user',
             key: 'user',
             render: (text, record) => <a>{text.email}</a>,
+        },
+        {
+            title: 'Tên tour',
+            dataIndex: 'tour',
+            key: 'tour',
+            render: (text) => <a>{text.title}</a>,
+        },
+        {
+            title: 'Ngày khởi hành',
+            dataIndex: 'departureDate',
+            key: 'departureDate',
+            render: (text) => <a>{new Date(text).toLocaleDateString()}</a>,
+        },
+        {
+            title: 'Số người',
+            dataIndex: 'people',
+            key: 'people',
+        },
+        {
+            title: 'Tổng tiền',
+            dataIndex: 'total',
+            key: 'total',
+        },
+        {
+            title: 'Hình thức thanh toán',
+            dataIndex: 'billing',
+            key: 'billing',
         },
         {
             title: 'Trạng thái',
@@ -277,23 +287,6 @@ const OrderList = () => {
             render: (text, record) => <a>{text.username}</a>,
         },
         {
-            title: 'Tên tour',
-            dataIndex: 'tour',
-            key: 'tour',
-            render: (text) => <a>{text.title}</a>,
-        },
-        {
-            title: 'Tổng tiền',
-            dataIndex: 'tour',
-            key: 'tour',
-            render: (text) => <a>{text.price}</a>,
-        },
-        {
-            title: 'Hình thức thanh toán',
-            dataIndex: 'billing',
-            key: 'billing',
-        },
-        {
             title: 'Số điện thoại',
             dataIndex: 'user',
             key: 'user',
@@ -304,6 +297,33 @@ const OrderList = () => {
             dataIndex: 'user',
             key: 'user',
             render: (text, record) => <a>{text.email}</a>,
+        },
+        {
+            title: 'Tên tour',
+            dataIndex: 'tour',
+            key: 'tour',
+            render: (text) => <a>{text.title}</a>,
+        },
+        {
+            title: 'Ngày khởi hành',
+            dataIndex: 'departureDate',
+            key: 'departureDate',
+            render: (text) => <a>{new Date(text).toLocaleDateString()}</a>,
+        },
+        {
+            title: 'Số người',
+            dataIndex: 'people',
+            key: 'people',
+        },
+        {
+            title: 'Tổng tiền',
+            dataIndex: 'total',
+            key: 'total',
+        },
+        {
+            title: 'Hình thức thanh toán',
+            dataIndex: 'billing',
+            key: 'billing',
         },
         {
             title: 'Trạng thái',

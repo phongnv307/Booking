@@ -111,7 +111,7 @@ export const searchTourByNameAdmin = async (req,res) => {
 
 export const bookingTour = async (req, res) => {
   try {
-    const { tourId, userId, bookingDetails, billing } = req.body;
+    const { tourId, userId, bookingDetails, billing, departureDate, people, total } = req.body;
 
     const tour = await Tour.findById(tourId);
 
@@ -123,7 +123,10 @@ export const bookingTour = async (req, res) => {
       tour: tourId,
       user: userId,
       details: bookingDetails,
-      billing: billing
+      billing: billing,
+      departureDate: new Date(departureDate),
+      people: people,
+      total: total
     });
 
     await booking.save();

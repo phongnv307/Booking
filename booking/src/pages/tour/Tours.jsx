@@ -17,7 +17,8 @@ import carImg from "../../assets/car.png";
 import includeImg from "../../assets/right-arrow.png";
 import Review from "../../share/Review/Review";
 import cursor from "../../assets/cursor.png";
-import { Modal, Button, Form, Input, notification, Radio } from 'antd';
+import { Modal, Button, Form, Input, notification, Radio, InputNumber, DatePicker } from 'antd';
+import moment from 'moment';
 import axios from "axios";
 
 const Tours = () => {
@@ -29,6 +30,7 @@ const Tours = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [bookingData, setBookingData] = useState({});
   const [form] = Form.useForm();
+  const [totalCost, setTotalCost] = useState(0);
 
   const { data, loading, error } = useFetch(
     `http://localhost:8800/api/tours/${id}`
@@ -50,6 +52,19 @@ const Tours = () => {
       form.resetFields();
       handleOkUser(values);
       setModalVisible(false);
+    });
+  };
+
+  const handleDateChange = () => {
+    form.validateFields(['people']).then((values) => {
+      const {  people } = values;
+        const tourPrice = data.price; 
+        const totalPrice = tourPrice * people;
+        setTotalCost(totalPrice);
+      
+    }).catch((error) => {
+      console.error("Lỗi xử lý promise:", error);
+      // Xử lý lỗi promise ở đây (nếu cần)
     });
   };
 
@@ -82,7 +97,10 @@ const Tours = () => {
           tourId: id,
           bookingDetails: values.bookingDetails,
           userId: currentUser.details._id,
-          billing: values.paymentMethod
+          billing: values.paymentMethod,
+          departureDate: values.departureDate,
+          people: values.people,
+          total: totalCost,
         };
         return axios.post("http://localhost:8800/api/tours/book", tourData).then(response => {
           if (response === undefined) {
@@ -100,6 +118,7 @@ const Tours = () => {
             });
           }
           setModalVisible(false);
+          setTotalCost(0);
         })
       } catch (error) {
         throw error;
@@ -192,6 +211,7 @@ const Tours = () => {
         });
         
         setShowModal(false);
+        setTotalCost(0);
       } else {
         notification["error"]({
           message: `Thông báo`,
@@ -367,6 +387,43 @@ const Tours = () => {
           </Form.Item>
 
           <Form.Item
+            name="departureDate"
+            label="Ngày khởi hành"
+            rules={[
+              {
+                required: true,
+                message: 'Vui lòng chọn ngày khởi hành!',
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  const now = moment().startOf('day'); // Use startOf('day') to include the current day
+                  if (value && value < now) {
+                    return Promise.reject(new Error('Ngày khởi hành không thể nhỏ hơn ngày hiện tại'));
+                  }
+                  return Promise.resolve();
+                },
+              }),
+            ]}
+            style={{ marginBottom: 10 }}
+          >
+            <DatePicker style={{ width: '100%' }}/>
+          </Form.Item>
+
+          <Form.Item
+            name="people"
+            label="Số người"
+            rules={[
+              {
+                required: true,
+                message: 'Vui lòng nhập số người',
+              },
+            ]}
+            style={{ marginBottom: 10 }}
+          >
+            <InputNumber onChange={handleDateChange}/>
+          </Form.Item>
+
+          <Form.Item
             name="paymentMethod"
             label="Phương thức thanh toán"
             rules={[
@@ -382,6 +439,9 @@ const Tours = () => {
               <Radio value="paypal">PayPal</Radio>
             </Radio.Group>
           </Form.Item>
+
+
+          <p style={{ marginBottom: 10 }}>Tổng tiền: {totalCost} USD</p>
 
         </Form>
       </Modal>

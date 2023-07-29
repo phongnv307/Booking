@@ -16,6 +16,18 @@ const BookingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    departureDate: {
+      type: Date,
+      required: true,
+    },
+    people: {
+      type: Number,
+      required: true,
+    },
+    total: {
+      type: String,
+      require: true
+    },
     createdAt: {
       type: Date,
       default: Date.now,

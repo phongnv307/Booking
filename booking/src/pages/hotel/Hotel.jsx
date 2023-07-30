@@ -440,7 +440,7 @@ const Hotel = () => {
             </div>
 
             <span className="hotelDistance">
-              Excellent location – {data.distance}m from center
+              Excellent location to visit 
             </span>
             <span className="hotelPriceHighlight">
               Book a stay over ${data.cheapestPrice} at this property and get a
@@ -558,7 +558,7 @@ const Hotel = () => {
                   <div className="boxTop-right"></div>
                 </div>
                 <div className="boxMid">
-                  {/* <h3>Information</h3>
+                  {/* 
                   <div className="midInfo flex">
                     <input type="text" id="name" placeholder="Full name" />
                     <label htmlFor="name"></label>
@@ -567,7 +567,8 @@ const Hotel = () => {
                     <input type="date" id="date" />
                     <label htmlFor="date"></label>
                   </div> */}
-                  {/* <span dangerouslySetInnerHTML={{ __html: data.desc }}/> */}
+                  <h3 style={{fontWeight: "bold"}}>Introduction of accommodation</h3>
+                  <p style={{width: "331px"}} dangerouslySetInnerHTML={{ __html: data.desc }}/>
                 </div>
                 {/* <div className="boxBot">
                   <div className="botPrice flexx">

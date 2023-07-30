@@ -8,7 +8,7 @@ export const createRoom = async (req, res, next) => {
   const decodedToken = jwt.verify(req.headers.authorization, process.env.JWT);
   const createdBy = decodedToken.id;
   const roomOrder = 0;
-  const booked = true;
+  const booked = false;
   try {
     const { title, price, maxPeople, desc, typeRooms, roomQuantity } = req.body;
     const room = new Room({ title, price, maxPeople, desc, createdBy, typeRooms, roomQuantity, roomOrder, booked });

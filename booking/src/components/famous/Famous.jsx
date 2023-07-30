@@ -58,9 +58,7 @@ function Famous() {
           </span>
 
           <span className="lastTextt">
-            Book now 
-            to enjoy great moments
-            Sign in to get extra 15% off hotel booking
+            Seamless Booking for Unforgettable Experiences.
           </span>
         </div>
       </div>

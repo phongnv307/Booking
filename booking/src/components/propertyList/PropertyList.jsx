@@ -53,22 +53,18 @@ function PropertyList() {
   };
   const imgArr = [
     "https://www.ahstatic.com/photos/5451_ho_00_p_1024x768.jpg",
+    "https://www.cet.edu.vn/wp-content/uploads/2019/02/villa-khong-gian-sang-trong.jpg",
     "https://lh3.googleusercontent.com/YFa-f0a1kOiU0eEX6Q1dw6i8E1wMOyZUrQwI-zd8Na4-WIx1oqEdfW8jbUeGBFyRtXsYhPE6FwWH5NUqUeWzHsS48SaMNA9ZWg=w640-h426-n-rj-l90",
     "https://toancanhbatdongsan.com.vn/uploads/images/2022/04/12/resort-dep-nhat-viet-nam-six-senses-ninh-van-bay-khanh-hoa-min-1649730414.jpg",
-    "https://www.cet.edu.vn/wp-content/uploads/2019/02/villa-khong-gian-sang-trong.jpg",
-    "https://thecabinyeg.com/wp-content/uploads/2021/12/winter-cabin.jpg",
-    "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2020/01/Chancellors-Swiss-Cottage.jpg",
-    "https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg",
+    "https://motogo.vn/wp-content/uploads/2023/05/homestay-kon-tum-40.jpg", 
   ];
 
   const typeArr = [
     "Hotel",
+    "Villa",
     "Aparment",
     "Resort",
-    "Villas",
-    "Cabin",
-    "Cattage",
-    "Vacation",
+    "Homestay",
   ];
   const { data } = useFetch("http://localhost:8800/api/hotels/countByType");
   console.log(data);

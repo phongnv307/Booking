@@ -23,14 +23,69 @@ const { Title } = Typography;
 const DATE_TIME_FORMAT = "DD/MM/YYYY HH:mm";
 
 const citiesArr = [
-    { name: "Hà Nội", value: "hanoi" },  
-    { name: "Đà Lạt", value: "dalat" }, 
-    { name: "Hồ Chí Minh", value: "hochiminh" },
-    { name: "Vũng Tàu", value: "vungtau" },
+    { name: "An Giang", value: "angiang" },
+    { name: "Bà Rịa-Vũng Tàu", value: "baria" },
+    { name: "Bạc Liêu", value: "baclieu" },
+    { name: "Bắc Giang", value: "bacgiang" },
+    { name: "Bắc Kạn", value: "backan" },
+    { name: "Bắc Ninh", value: "bacninh" },
+    { name: "Bến Tre", value: "bentre" },
+    { name: "Bình Dương", value: "binhduong" },
+    { name: "Bình Định", value: "binhdinh" },
+    { name: "Bình Phước", value: "binhphuoc" },
+    { name: "Bình Thuận", value: "binhthuan" },
+    { name: "Cà Mau", value: "camau" },
+    { name: "Cao Bằng", value: "caobang" },
+    { name: "Cần Thơ", value: "cantho" },
     { name: "Đà Nẵng", value: "danang" },
-    { name: "Nha Trang", value: "nhatrang" },
-    { name: "Huế", value: "hue" },
+    { name: "Đắk Lắk", value: "daklak" },
+    { name: "Đắk Nông", value: "daknong" },
+    { name: "Điện Biên", value: "dienbien" },
+    { name: "Đồng Nai", value: "dongnai" },
+    { name: "Đồng Tháp", value: "dongthap" },
+    { name: "Gia Lai", value: "gialai" },
+    { name: "Hà Giang", value: "hagiang" },
+    { name: "Hà Nam", value: "hanam" },
+    { name: "Hà Nội", value: "hanoi" },
+    { name: "Hà Tĩnh", value: "hatinh" },
+    { name: "Hải Dương", value: "haiduong" },
     { name: "Hải Phòng", value: "haiphong" },
+    { name: "Hậu Giang", value: "haugiang" },
+    { name: "Hòa Bình", value: "hoabinh" },
+    { name: "Hưng Yên", value: "hungyen" },
+    { name: "Khánh Hòa", value: "khanhhoa" },
+    { name: "Kiên Giang", value: "kiengiang" },
+    { name: "Kon Tum", value: "	kontum" },
+    { name: "Lai Châu", value: "laichau" },
+    { name: "Lạng Sơn", value: "langson" },
+    { name: "Lào Cai", value: "	laocai" },
+    { name: "Lâm Đồng", value: "lamdong" },
+    { name: "Long An", value: "longan" },
+    { name: "Nam Định", value: "namdinh" },
+    { name: "Nghệ An", value: "nghean" },
+    { name: "Ninh Bình", value: "ninhbinh" },
+    { name: "Ninh Thuận", value: "ninhthuan" },
+    { name: "Phú Thọ", value: "phutho" },
+    { name: "Phú Yên", value: "phuyen" },
+    { name: "Quảng Bình", value: "quangbinh" },
+    { name: "Quảng Nam", value: "quangnam" },
+    { name: "Quảng Ngãi", value: "quangngai" },
+    { name: "Quảng Ninh", value: "quangninh" },
+    { name: "Quảng Trị", value: "quangtri" },
+    { name: "Sóc Trăng", value: "soctrang" },
+    { name: "Sơn La", value: "sonla" },
+    { name: "Tây Ninh", value: "tayninh" },
+    { name: "Thái Bình", value: "thaibinh" },
+    { name: "Thái Nguyên", value: "thainguyen" },
+    { name: "Thanh Hóa", value: "thanhhoa" },
+    { name: "Thừa Thiên Huế", value: "hue" },
+    { name: "Tiền Giang", value: "tiengiang" },
+    { name: "TP Hồ Chí Minh", value: "hochiminh" },
+    { name: "Trà Vinh", value: "travinh" },
+    { name: "Tuyên Quang", value: "tuyenquang" },
+    { name: "Vĩnh Long", value: "vinhlong" },
+    { name: "Vĩnh Phúc", value: "vinhphuc" },
+    { name: "Yên Bái", value: "yenbai" },
 ];
 
 const ProductList = () => {
@@ -106,7 +161,7 @@ const ProductList = () => {
         try {
             const categoryList = {
                 "name": user.username,
-                "type": "hotel",
+                "type": values.type,
                 "city": values.city,
                 "address": values.address,
                 "title": values.title,
@@ -714,9 +769,10 @@ const ProductList = () => {
                         >
                             <Select placeholder="Chọn loại">
                                 <Option value="hotel">Khách sạn</Option>
+                                <Option value="villa">Biệt thự</Option>
                                 <Option value="apartment">Căn hộ</Option>
                                 <Option value="resort">Khu nghỉ mát</Option>
-                                <Option value="villa">Biệt thự</Option>
+                                <Option value="homestay">Homestay</Option>
                             </Select>
                         </Form.Item>
 
@@ -755,7 +811,7 @@ const ProductList = () => {
                         >
                             <Select mode="multiple" placeholder="Chọn phòng">
                                 {roomsList
-                                    .filter((room) => room.booked === true)
+                                    .filter((room) => room.booked === false)
                                     .map((room) => (
                                         <Select.Option key={room._id} value={room._id}>
                                             {room.title}
@@ -947,9 +1003,10 @@ const ProductList = () => {
                         >
                             <Select placeholder="Chọn loại">
                                 <Option value="hotel">Khách sạn</Option>
+                                <Option value="villa">Biệt thự</Option>
                                 <Option value="apartment">Căn hộ</Option>
                                 <Option value="resort">Khu nghỉ mát</Option>
-                                <Option value="villa">Biệt thự</Option>
+                                <Option value="homestay">Homestay</Option>
                             </Select>
                         </Form.Item>
 
@@ -988,7 +1045,7 @@ const ProductList = () => {
                         >
                             <Select mode="multiple" placeholder="Chọn phòng">
                                 {roomsList
-                                    .filter((room) => room.booked === true)
+                                    .filter((room) => room.booked === false)
                                     .map((room) => (
                                         <Select.Option key={room._id} value={room._id}>
                                             {room.title}

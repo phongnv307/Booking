@@ -52,12 +52,69 @@ const Header = ({ type, openDate, handleOpenDate }) => {
 
   const isNameValid = (cityName) => {
     const citiesArr = [
-      "hanoi",
+      "angiang",
+      "baria",
+      "baclieu",
+      "bacgiang",
+      "backan",
+      "bacninh",
+      "bentre",
+      "binhduong",
+      "binhdinh",
+      "binhphuoc",
+      "binhthuan",
+      "camau",
+      "caobang",
+      "cantho",
       "danang",
-      "dalat",
-      "vungtau",
+      "daklak",
+      "daknong",
+      "dienbien",
+      "dongnai",
+      "dongthap",
+      "gialai",
+      "hagiang",
+      "hanam",
+      "hanoi",
+      "hatinh",
+      "haiduong",
+      "haiphong",
+      "haugiang",
+      "hoabinh",
+      "hungyen",
+      "khanhhoa",
+      "kiengiang",
+      "kontum",
+      "laichau",
+      "langson",
+      "laocai",
+      "lamdong",
+      "longan",
+      "namdinh",
+      "nghean",
+      "ninhbinh",
+      "ninhthuan",
+      "phutho",
+      "phuyen",
+      "quangbinh",
+      "quangnam",
+      "quangngai",
+      "quangninh",
+      "quangtri",
+      "soctrang",
+      "sonla",
+      "tayninh",
+      "thaibinh",
+      "thainguyen",
+      "thanhhoa",
+      "hue",
+      "tiengiang",
       "hochiminh",
-      "hcm",
+      "travinh",
+      "tuyenquang",
+      "vinhlong",
+      "vinhphuc",
+      "yenbai",
     ];
     return citiesArr.includes(cityName);
   };
@@ -85,7 +142,7 @@ const Header = ({ type, openDate, handleOpenDate }) => {
     } else {
       inputRef.current.value !== ""
         ? setMessage(
-            "we currently not don't have that location available on our website yet.Please choose another location or refer to the locations below"
+            "we currently don't have that location available"
           )
         : setMessage("Please enter your destination");
       inputRef.current.value = "";
@@ -129,15 +186,14 @@ const Header = ({ type, openDate, handleOpenDate }) => {
           <>
             <div className="headerSearch-subTitle">
               <h4 className="headerTitle" data-aos="fade-left">
-                Available until 3 Jan 2023
+                Discover, Book, and Go: Your Journey Starts Here!
               </h4>
               <h1 className="headerSave" data-aos="fade-left">
                 {" "}
-                Save 15% with Late Escape Deals{" "}
+                Book Smarter, Explore Better!{" "}
               </h1>
               <p className="headerDesc" data-aos="fade-left">
-                There’s still time to tick one more destination off your
-                wishlist
+                Let's tick one more destination off your wishlist
               </p>
             </div>
             <div className="headerSearch">

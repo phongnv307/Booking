@@ -27,6 +27,10 @@ export const updateHotel = async (req, res, next) => {
       { $set: req.body },
       { new: true }
     );
+    await Room.updateMany(
+      { _id: { $in: req.body.rooms } }, 
+      { $set: { booked: true } } 
+    );
     res.status(200).json(updatedHotel);
   } catch (err) {
     next(err);
@@ -152,23 +156,17 @@ export const countByCity = async (req, res, next) => {
 export const countByType = async (req, res, next) => {
   try {
     const hotelCount = await Hotel.countDocuments({ type: "hotel" });
+    const villaCount = await Hotel.countDocuments({ type: "villa" });
     const apartmentCount = await Hotel.countDocuments({ type: "apartment" });
     const resortCount = await Hotel.countDocuments({ type: "resort" });
-    const villaCount = await Hotel.countDocuments({ type: "villa" });
-    const cabinCount = await Hotel.countDocuments({ type: "cabin" });
-    const cottageCount = await Hotel.countDocuments({ type: "cottage" });
-    const vacationHomeCount = await Hotel.countDocuments({
-      type: "vacationhome",
-    });
+    const homestayCount = await Hotel.countDocuments({ type: "homestay" });
 
     res.status(200).json([
       { type: "hotel", count: hotelCount },
-      { type: "apartment", count: apartmentCount },
-      { type: "resort", count: resortCount },
       { type: "villa", count: villaCount },
-      { type: "cabin", count: cabinCount },
-      { type: "cottage", count: cabinCount },
-      { type: "vacation home", count: cabinCount },
+      { type: "apartment", count: apartmentCount },
+      { type: "resort", count: resortCount },    
+      { type: "homestay", count: homestayCount },
     ]);
   } catch (err) {
     next(err);

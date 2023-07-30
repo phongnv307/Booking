@@ -94,46 +94,6 @@ app.delete("/api/mails/:id", verifyAdmin, async (req, res, next) => {
     next(err);
   }
 });
-// app.post("/api/mails", verifyAdmin, getEmail, async (req, res) => {
-//   const email = req.body.mailList;
-//   console.log("<<< MAIL: ", req.body);
-
-//   let transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     host: "smtp.gmail.com",
-//     port: 465,
-//     secure: true,
-//     auth: {
-//       user: "harrynguyen456@gmail.com",
-//       pass: "upetskxegbycxalb",
-//     },
-//   });
-//   // , { expiresIn: "300" }
-//   const token = jwt.sign({ email }, process.env.JWT);
-//   const link = `http://localhost:3005/register?token=${token}`;
-//   // return;
-//   await transporter.sendMail(
-//     {
-//       from: "harrynguyen456@gmail.com",
-//       to: `${email}`,
-//       // to: `19119161@student.hcmute.edu.vn`,
-//       subject: req.body.title,
-//       html: req.body.detail,
-//       // html: link,
-//     },
-//     (err) => {
-//       if (err) {
-//         return res.json({
-//           message: "errorororor",
-//           err,
-//         });
-//       }
-//       return res.json({
-//         message: `da gui mail thanh cong cho tai khoan ${email}`,
-//       });
-//     }
-//   );
-// });
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);

@@ -6,7 +6,6 @@ import { useState, useContext, useRef } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
-import GGmap from "../../components/ggMap/GGmap.jsx";
 import MultiRangeSlider from "../../components/multiRangeSlider/multiRangeSlider.jsx";
 import MailList from "../../components/mailList/MailList.jsx";
 import Footer from "../../components/footer/Footer.jsx";
@@ -79,12 +78,69 @@ const List = () => {
 
   const isNameValid = (cityName) => {
     const citiesArr = [
-      "hanoi",
+      "angiang",
+      "baria",
+      "baclieu",
+      "bacgiang",
+      "backan",
+      "bacninh",
+      "bentre",
+      "binhduong",
+      "binhdinh",
+      "binhphuoc",
+      "binhthuan",
+      "camau",
+      "caobang",
+      "cantho",
       "danang",
-      "dalat",
-      "vungtau",
+      "daklak",
+      "daknong",
+      "dienbien",
+      "dongnai",
+      "dongthap",
+      "gialai",
+      "hagiang",
+      "hanam",
+      "hanoi",
+      "hatinh",
+      "haiduong",
+      "haiphong",
+      "haugiang",
+      "hoabinh",
+      "hungyen",
+      "khanhhoa",
+      "kiengiang",
+      "kontum",
+      "laichau",
+      "langson",
+      "laocai",
+      "lamdong",
+      "longan",
+      "namdinh",
+      "nghean",
+      "ninhbinh",
+      "ninhthuan",
+      "phutho",
+      "phuyen",
+      "quangbinh",
+      "quangnam",
+      "quangngai",
+      "quangninh",
+      "quangtri",
+      "soctrang",
+      "sonla",
+      "tayninh",
+      "thaibinh",
+      "thainguyen",
+      "thanhhoa",
+      "hue",
+      "tiengiang",
       "hochiminh",
-      "hcm",
+      "travinh",
+      "tuyenquang",
+      "vinhlong",
+      "vinhphuc",
+      "yenbai",
     ];
     return citiesArr.includes(cityName);
   };
@@ -99,7 +155,7 @@ const List = () => {
       reFetch();
     } else {
       return alert(
-        "we currently not don't have that location available on our website yet.Please choose another location or come back to homepage to see the destinations that we currently have"
+        "we currently don't have that location available"
       );
 
       // inputRef.current.value ="";
@@ -146,17 +202,18 @@ const List = () => {
                   }}
                 >
                   <option value="">All</option>
-                  <option value="apartment">Apartment</option>
-                  <option value="hotel">Hotel</option>
-                  <option value="resort">Resort</option>
+                  <option value="hotel">Hotel</option>           
                   <option value="villa">Villa</option>
+                  <option value="apartment">Apartment</option>
+                  <option value="resort">Resort</option>
+                  <option value="homestay">Homestay</option>
                 </select>
               </div>
               {/* <Tippy content={message} trigger= "click" className="search-tooltip" theme={'light'} animation={'shift-away'} > 
               
               <span ref={tipsRef} ></span>
             </Tippy> */}
-              <div className="lsItem">
+              {/* <div className="lsItem">
                 <label>Check-in Date</label>
                 <span onClick={() => setOpenDate(!openDate)}>{`${format(
                   date[0]?.startDate,
@@ -169,7 +226,7 @@ const List = () => {
                     ranges={date}
                   />
                 )}
-              </div>
+              </div> */}
 
               <div className="lsItem">
                 <label>Options</label>
@@ -214,7 +271,6 @@ const List = () => {
               </div>
               <button onClick={handleSearch}>Search</button>
             </div>
-            <GGmap />
           </div>
           <div className="listResult">
             <h2>{`${destination}: ${data.length} properties found`} </h2>

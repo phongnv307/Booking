@@ -26,10 +26,9 @@ function Featured() {
   //   children: 0,
   //   room: 1,
   // });
-  const {data} = useFetch('http://localhost:8800/api/hotels/countByCity?cities=hanoi,dalat,hochiminh,vungtau,danang,nhatrang,hue,haiphong')
+  const {data} = useFetch('http://localhost:8800/api/hotels/countByCity?cities=hanoi,hochiminh,vungtau,danang,nhatrang,hue,haiphong')
   const imgArr =[
     "https://cdn3.ivivu.com/2022/07/h%E1%BB%93-g%C6%B0%C6%A1m-du-l%E1%BB%8Bch-H%C3%A0-N%E1%BB%99i-ivivu.jpg",
-    "https://a.cdn-hotels.com/gdcs/production154/d1245/0a3c326f-cedf-4cf9-ada2-71f7517d0a09.jpg",
     "https://img.meta.com.vn/Data/image/2021/07/09/dan-so-thanh-pho-ho-chi-minh-3.jpg",
     "https://cdn3.ivivu.com/2022/09/T%E1%BB%95ng-quan-du-l%E1%BB%8Bch-V%C5%A9ng-T%C3%A0u-ivivu.jpg",
     "https://vcdn1-dulich.vnecdn.net/2022/06/03/cauvang-1654247842-9403-1654247849.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=Swd6JjpStebEzT6WARcoOA",
@@ -37,7 +36,7 @@ function Featured() {
     "https://giaonuocnhanh.com/wp-content/uploads/2021/12/hue.jpg",
     "https://cdnimg.vietnamplus.vn/uploaded/xpcwvovt/2022_09_02/hai_phong.jpg"
   ]
-  const cities = ["Ha Noi","Da Lat","Ho Chi Minh","Vung Tau","Da Nang","Nha Trang","Hue","Hai Phong"]  
+  const cities = ["Ha Noi","Ho Chi Minh","Vung Tau","Da Nang","Nha Trang","Hue","Hai Phong"]  
 
   const navigate = useNavigate()
   const settings = {

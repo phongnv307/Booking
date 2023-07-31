@@ -22,8 +22,8 @@ const AccountCreate = () => {
                 "password": values.password,
                 "isAdmin": true,
                 "role": "isAdmin",
-                "city": "HCM",
-                "country": "HCM",
+                "city": "HN",
+                "country": "VN",
                 "status": "actived"
             }
             await axiosClient.post("/auth/register", formatData)

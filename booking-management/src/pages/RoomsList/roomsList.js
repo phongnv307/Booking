@@ -295,16 +295,6 @@ const RoomList = () => {
             dataIndex: 'price',
         },
         {
-            title: 'Phê duyệt',
-            dataIndex: 'visible',
-            key: 'visible',
-            render: (res) => (
-                <span>
-                    {res ? <Tag color="blue">Có</Tag> : <Tag color="magenta">Không</Tag>}
-                </span>
-            ),
-        },
-        {
             title: 'Mô tả',
             key: 'desc',
             dataIndex: 'desc',
@@ -321,6 +311,16 @@ const RoomList = () => {
             key: 'roomQuantity',
             dataIndex: 'roomQuantity',
             render: (desc) => <div>{desc}</div>,
+        },
+        {
+            title: 'Phê duyệt',
+            dataIndex: 'visible',
+            key: 'visible',
+            render: (res) => (
+                <span>
+                    {res ? <Tag color="blue">Có</Tag> : <Tag color="magenta">Không</Tag>}
+                </span>
+            ),
         },
         {
             title: 'Action',
@@ -395,16 +395,6 @@ const RoomList = () => {
             dataIndex: 'price',
         },
         {
-            title: 'Phê duyệt',
-            dataIndex: 'visible',
-            key: 'visible',
-            render: (res) => (
-                <span>
-                    {res ? <Tag color="blue">Có</Tag> : <Tag color="magenta">Không</Tag>}
-                </span>
-            ),
-        },
-        {
             title: 'Mô tả',
             key: 'desc',
             dataIndex: 'desc',
@@ -421,6 +411,16 @@ const RoomList = () => {
             key: 'roomQuantity',
             dataIndex: 'roomQuantity',
             render: (desc) => <div>{desc}</div>,
+        },
+        {
+            title: 'Phê duyệt',
+            dataIndex: 'visible',
+            key: 'visible',
+            render: (res) => (
+                <span>
+                    {res ? <Tag color="blue">Có</Tag> : <Tag color="magenta">Không</Tag>}
+                </span>
+            ),
         },
         {
             title: 'Action',

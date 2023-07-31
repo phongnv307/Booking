@@ -40,7 +40,7 @@ function Sidebar() {
     },
     {
       key: "rooms-list",
-      title: "Quản Lý Phòng",
+      title: "Danh Sách Phòng",
       link: "/rooms-list",
       icon: <ShoppingOutlined />
     },
@@ -85,7 +85,7 @@ function Sidebar() {
     },
     {
       key: "rooms-list",
-      title: "Quản Lý Phòng",
+      title: "Danh Sách Phòng",
       link: "/rooms-list",
       icon: <ShoppingOutlined />
     },

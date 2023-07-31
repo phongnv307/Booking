@@ -70,10 +70,6 @@ const TourSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    isBooking: {
-      type: Boolean,
-      default: 'false'
-    },
   },
   { timestamps: true }
 );

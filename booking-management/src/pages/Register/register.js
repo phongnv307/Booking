@@ -29,8 +29,8 @@ const RegisterCustomer = () => {
                 "password": values.password,
                 "isAdmin": false,
                 "role": "isCompany",
-                "city": "HCM",
-                "country": "HCM",
+                "city": "HN",
+                "country": "VN",
                 "status": "actived"
             }
             await axiosClient.post("/auth/register", formatData)

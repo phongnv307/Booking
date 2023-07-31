@@ -7,7 +7,6 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import MultiRangeSlider from "../../components/multiRangeSlider/multiRangeSlider.jsx";
-import MailList from "../../components/mailList/MailList.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import useFetch from "../../hooks/useFetch";
 import PaginatedItems from "../../components/paginnation/Paginate.jsx";
@@ -79,7 +78,7 @@ const List = () => {
   const isNameValid = (cityName) => {
     const citiesArr = [
       "angiang",
-      "baria",
+      "vungtau",
       "baclieu",
       "bacgiang",
       "backan",
@@ -284,7 +283,6 @@ const List = () => {
         </div>
       </div>
       <div className="spacer">
-        <MailList />
       </div>
       <div style={{ "margin-top": "15px" }}></div>
       <div style={{ "margin-top": "20px" }}>

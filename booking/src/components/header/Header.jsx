@@ -53,7 +53,7 @@ const Header = ({ type, openDate, handleOpenDate }) => {
   const isNameValid = (cityName) => {
     const citiesArr = [
       "angiang",
-      "baria",
+      "vungtau",
       "baclieu",
       "bacgiang",
       "backan",

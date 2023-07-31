@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { useLocation } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
@@ -347,7 +346,6 @@ const Tours = () => {
         {/* <Review /> */}
       </div>
 
-      <MailList />
       <Footer />
 
       <Modal

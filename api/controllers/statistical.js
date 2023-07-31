@@ -2,6 +2,7 @@ import UserModel from '../models/User.js';
 import HotelModel from '../models/Hotel.js';
 import TourModel from '../models/Tour.js';
 import RoomModel from '../models/Room.js';
+import BookingRoomModel from '../models/BookingRooms.js';
 // import OrderModel from '../models/order';
 import StatisticalModel from '../models/statistical.js';
 
@@ -13,6 +14,7 @@ export const getAllStatistical = async (req, res, next) => {
         const userCountPromise = UserModel.countDocuments();
         const hotelCountPromise = HotelModel.countDocuments();
         const tourCountPromise = TourModel.countDocuments();
+        const orderCountPromise = BookingRoomModel.countDocuments();
         // const currentDate = new Date();
         // const last12Months = new Date(currentDate.setMonth(currentDate.getMonth() - 11));
         // const orderCountPromise = OrderModel.aggregate([
@@ -34,21 +36,21 @@ export const getAllStatistical = async (req, res, next) => {
         const result = {};
         
         // Sử dụng Promise.all để chờ cả hai Promise hoàn thành
-        Promise.all([userCountPromise, hotelCountPromise, tourCountPromise])
+        Promise.all([userCountPromise, hotelCountPromise, tourCountPromise, orderCountPromise])
             .then((results) => {
-                const [userCount, hotelCount, tourCount, ] = results;
+                const [userCount, hotelCount, tourCount, orderCount] = results;
                 const data = [
-                    { name: "Tháng 1", Total: 1 },
+                    { name: "Tháng 1", Total: 0 },
                     { name: "Tháng 2", Total: 0 },
-                    { name: "Tháng 3", Total: 2 },
+                    { name: "Tháng 3", Total: 0 },
                     { name: "Tháng 4", Total: 0 },
-                    { name: "Tháng 5", Total: 4 },
-                    { name: "Tháng 6", Total: 0 },
-                    { name: "Tháng 7", Total: 0 },
-                    { name: "Tháng 8", Total: 0 },
-                    { name: "Tháng 9", Total: 0 },
+                    { name: "Tháng 5", Total: 0 },
+                    { name: "Tháng 6", Total: 3 },
+                    { name: "Tháng 7", Total: 6 },
+                    { name: "Tháng 8", Total: 1 },
+                    { name: "Tháng 9", Total: 4 },
                     { name: "Tháng 10", Total: 0 },
-                    { name: "Tháng 11", Total: 8 },
+                    { name: "Tháng 11", Total: 0 },
                     { name: "Tháng 12", Total: 0 }
                 ];
 
@@ -62,7 +64,7 @@ export const getAllStatistical = async (req, res, next) => {
                     userTotal: userCount,
                     hotelTotal: hotelCount,
                     tourTotal: tourCount,
-                    orderTotal: 0,
+                    orderTotal: orderCount,
                     data
                 };
                 res.status(200).json({ data: result });
@@ -110,17 +112,17 @@ export const getAllStatisticalCompany = async (req, res, next) => {
             .then((results) => {
                 const [hotelCount, tourCount, roomsCount] = results;
                 const data = [
-                    { name: "Tháng 1", Total: 1 },
+                    { name: "Tháng 1", Total: 0 },
                     { name: "Tháng 2", Total: 0 },
-                    { name: "Tháng 3", Total: 2 },
+                    { name: "Tháng 3", Total: 0 },
                     { name: "Tháng 4", Total: 0 },
-                    { name: "Tháng 5", Total: 4 },
-                    { name: "Tháng 6", Total: 0 },
-                    { name: "Tháng 7", Total: 0 },
-                    { name: "Tháng 8", Total: 0 },
-                    { name: "Tháng 9", Total: 0 },
+                    { name: "Tháng 5", Total: 0 },
+                    { name: "Tháng 6", Total: 3 },
+                    { name: "Tháng 7", Total: 6 },
+                    { name: "Tháng 8", Total: 1 },
+                    { name: "Tháng 9", Total: 4 },
                     { name: "Tháng 10", Total: 0 },
-                    { name: "Tháng 11", Total: 8 },
+                    { name: "Tháng 11", Total: 0 },
                     { name: "Tháng 12", Total: 0 }
                 ];
 

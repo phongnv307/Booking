@@ -24,7 +24,7 @@ const DATE_TIME_FORMAT = "DD/MM/YYYY HH:mm";
 
 const citiesArr = [
     { name: "An Giang", value: "angiang" },
-    { name: "Bà Rịa-Vũng Tàu", value: "baria" },
+    { name: "Bà Rịa-Vũng Tàu", value: "vungtau" },
     { name: "Bạc Liêu", value: "baclieu" },
     { name: "Bắc Giang", value: "bacgiang" },
     { name: "Bắc Kạn", value: "backan" },
@@ -120,7 +120,7 @@ const ProductList = () => {
         try {
             const categoryList = {
                 "name": user.username,
-                "type": "hotel",
+                "type": values.type,
                 "city": values.city,
                 "address": values.address,
                 "title": values.title,

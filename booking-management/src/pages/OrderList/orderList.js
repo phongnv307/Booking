@@ -237,7 +237,7 @@ const OrderList = () => {
             title: 'Tên tour',
             dataIndex: 'tour',
             key: 'tour',
-            render: (text) => <a>{text.title}</a>,
+            render: (text) => <a>{text?.title}</a>,
         },
         {
             title: 'Ngày khởi hành',
@@ -302,7 +302,7 @@ const OrderList = () => {
             title: 'Tên tour',
             dataIndex: 'tour',
             key: 'tour',
-            render: (text) => <a>{text.title}</a>,
+            render: (text) => <a>{text?.title}</a>,
         },
         {
             title: 'Ngày khởi hành',

@@ -12,6 +12,7 @@ export const register = async (req, res, next) => {
 
     const newUser = new User({
       ...data,
+      status: "actived",
       password: hash,
     });
     console.log(newUser);
@@ -51,40 +52,4 @@ export const login = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
-
-export const sendMail = async (req, res) => {
-  const { email } = req.body;
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: "harrynguyen456@gmail.com",
-      pass: "upetskxegbycxalb",
-    },
-  });
-  const token = jwt.sign({ email }, process.env.JWT);
-  const link = `http://localhost:3005/register?token=${token}`;
-  await transporter.sendMail(
-    {
-      from: "harrynguyen456@gmail.com",
-      to: `${email}`,
-      subject: "Hello",
-
-      html: `<h2>this link valid only in 5 minute</h2> <a href= ${link}> Click here to continue</a>`,
-    },
-    (err) => {
-      if (err) {
-        return res.json({
-          message: "errorororor",
-          err,
-        });
-      }
-      return res.json({
-        message: `da gui mail thanh cong cho tai khoan ${email}`,
-      });
-    }
-  );
 };

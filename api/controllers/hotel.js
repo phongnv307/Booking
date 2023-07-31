@@ -223,7 +223,7 @@ export const getHotelsCompany = async (req, res, next) => {
 export const addCommentAndRating = async (req, res) => {
   try {
     const { id } = req.params;
-    const { comment, rating } = req.body;
+    const { userName, comment, rating } = req.body;
 
     const hotel = await Hotel.findById(id);
 
@@ -233,6 +233,7 @@ export const addCommentAndRating = async (req, res) => {
 
     // Create a new comment object
     const newComment = {
+      userName,
       comment,
       rating,
     };

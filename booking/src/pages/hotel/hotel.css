@@ -486,7 +486,7 @@ input:focus {
 .userName {
   font-size: 1.25vw;
   color: #555;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .reviewTitle {
@@ -554,7 +554,7 @@ input:focus {
 }
 
 .userInfor {
-  display: flex;
+  display: inline-block;
   align-items: center;
   flex-direction: column;
   justify-content: center;

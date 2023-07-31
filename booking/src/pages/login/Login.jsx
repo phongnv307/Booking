@@ -74,7 +74,7 @@ const Login = () => {
        <div className="login-app">
        <div className="loginTitle">
        <img src="https://png.pngtree.com/png-clipart/20220705/ourmid/pngtree-blink-bling-stars-cartoon-png-image_5683010.png" alt="" />
-        Welcome to Booking
+        Welcome to Hoteloka
         <img src="https://png.pngtree.com/png-clipart/20220705/ourmid/pngtree-blink-bling-stars-cartoon-png-image_5683010.png" alt="" />
       </div>
       <form className="login-form" onSubmit={handleClick}>

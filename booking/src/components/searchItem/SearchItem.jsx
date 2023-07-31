@@ -32,7 +32,14 @@ const SearchItem = ({ item }) => {
       <div className="siDetails">
         {item.rating && <div className="siRating">
           <span>Excellent</span>
-          <button>{item.rating?.toFixed(2)}</button>
+          <button style={{display: 'flex'}}>
+            <h4 style={{marginRight: '10px'}}>{item.rating?.toFixed(1)} </h4>
+            <img
+                  style={{width: '2.5vw'}}
+                  src="https://img.icons8.com/fluency/512/star.png"
+                  alt=""
+                />
+          </button>
         </div>}
         <div className="siDetailTexts">
           <span className="siPrice">${item.cheapestPrice}</span>

@@ -2,7 +2,6 @@
 import "./hotel.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -331,6 +330,7 @@ const Hotel = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [rating, setRating] = useState(0);
+  const [userName, setUserName] = useState("");
 
   const handleCommentChange = (e) => {
     setNewComment(e.target.value);
@@ -341,8 +341,12 @@ const Hotel = () => {
   };
 
   const handleSubmitComment = async () => {
+    const local = localStorage.getItem("user");
+    const currentUser = JSON.parse(local);       
+    const userName = currentUser.details.username;
     try {
       const response = await axios.post('http://localhost:8800/api/hotels/addCommentAndRating/' + id, {
+        userName: userName,
         comment: newComment,
         rating: rating, // Set the rating value as needed
       });
@@ -523,7 +527,7 @@ const Hotel = () => {
                   <div className="review">
                     <div className="reviewTop">
                       <h2>Rating ({data.review?.length} ratings) </h2>
-                      <h2>Average total stars({data?.rating?.toFixed(2)}) </h2>
+                      <h2>Average total stars({data?.rating?.toFixed(1)}) </h2>
                       <span>Overall rating</span>
                     </div>
                     <div className="userInfor">
@@ -610,7 +614,6 @@ const Hotel = () => {
             </div> */}
             {/* <App_showRoom hotelId={id} /> */}
           </div>
-          <MailList />
           <div style={{ margin: "15px 0" }}></div>
 
           {/* <Footer /> */}

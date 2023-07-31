@@ -25,14 +25,6 @@ export default function Register() {
         }
         const data = { email: email }
         setModal(!modal);
-        try {
-            const res = await axios.post('http://localhost:8800/api/auth/sendMail', data)
-            setResData(res.data)
-            setEmail("")
-            console.log(resData)
-        } catch (e) {
-            alert(e)
-        }
         
     }
 // useEffect(

@@ -277,6 +277,7 @@ const Hotel = () => {
             billing: "paypal",
             checkInDate: localStorage.getItem("checkInDate"),
             checkOutDate: localStorage.getItem("checkOutDate"),
+            total: localStorage.getItem("totalCost"),
           };
           return axios.post("http://localhost:8800/api/rooms/book", tourData).then(response => {
             if (response === undefined) {
@@ -375,6 +376,7 @@ const Hotel = () => {
         const cheapestPrice = price; 
         const totalPrice = cheapestPrice * numDays;
         setTotalCost(totalPrice);
+        localStorage.setItem("totalCost", totalPrice);
       } else {
         console.log("Vui lòng chọn cả ngày check-in và check-out");
       }

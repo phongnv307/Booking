@@ -420,7 +420,6 @@ const OrderList = () => {
                                     <Col span="6">
                                         <Row justify="end">
                                             <Space>
-                                                {/* <Button onClick={showModal} icon={<PlusOutlined />} style={{ marginLeft: 10 }} >Tạo đơn hàng</Button> */}
                                             </Space>
                                         </Row>
                                     </Col>
@@ -568,8 +567,6 @@ const OrderList = () => {
 
                     </Form>
                 </Modal>
-               
-                {/* <Pagination style={{ textAlign: "center", marginBottom: 20 }} current={currentPage} defaultCurrent={1} total={total} onChange={handlePage}></Pagination> */}
                 <BackTop style={{ textAlign: 'right' }} />
             </Spin>
         </div >

@@ -158,8 +158,7 @@ const Notification = () => {
     }
 
     const handleChange = (content) => {
-        console.log(content); //Get Content Inside Editor
-        //setDescription(content);
+        console.log(content); 
     }
 
     const handleViewContent = (key) => {

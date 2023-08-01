@@ -27,8 +27,6 @@ import MapComponent from "../../components/mapComponent/googleMap";
 import moment from 'moment';
 import queryString from "query-string";
 
-// import App_showRoom from "../../components/showRoom/App_showRoom.js";
-
 const Hotel = () => {
   const { modal } = useContext(UserContext);
   const { dates, options } = useContext(SearchContext);
@@ -430,7 +428,6 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            {/* <button className="bookNow">Reserve or Book Now!</button> */}
             <h1 className="hotelTitle">{data.title}</h1>
             <div className="hotelAddresContainer">
               <div className="hotelAddress">
@@ -454,24 +451,8 @@ const Hotel = () => {
             <div className="hotelImages-container">
               <div className="hotelImages">
                 <div className="hotelImages-demo">
-                  {/* {data.photos?.slice(1, 2)?.map((photo) => (
-                    <div className="hotelImgWrapper">
-                      <img src={photo} alt="" className="hotelImg" />
-                    </div>
-                  ))} */}
 
                   <Slider_Appp />
-
-                  {/* {data.photos?.slice(1,data.photos.length)?.map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
-                  <img
-                    onClick={() => handleOpen(i+1)}
-                    src={photo}
-                    alt=""
-                    className="hotelImg"
-                  />
-                </div>
-              ))} */}
 
                   <div className="utilities">
                     <div className="utilitiesTitle">
@@ -562,61 +543,16 @@ const Hotel = () => {
                   <div className="boxTop-right"></div>
                 </div>
                 <div className="boxMid">
-                  {/* 
-                  <div className="midInfo flex">
-                    <input type="text" id="name" placeholder="Full name" />
-                    <label htmlFor="name"></label>
-                    <input type="number" id="phone" placeholder="Phone" />
-                    <label htmlFor="phone"></label>
-                    <input type="date" id="date" />
-                    <label htmlFor="date"></label>
-                  </div> */}
                   <h3 style={{fontWeight: "bold"}}>Introduction of accommodation</h3>
                   <p style={{width: "331px"}} dangerouslySetInnerHTML={{ __html: data.desc }}/>
                 </div>
-                {/* <div className="boxBot">
-                  <div className="botPrice flexx">
-                    <div className="botPrice-left">
-                      ${data.cheapestPrice} x day
-                    </div>
-                    <div className="botPrice-right">${data.cheapestPrice}</div>
-                  </div>
-                  <div className="botService flexx">
-                    <div className="botService-left">Serice Change</div>
-                    <div className="botService-right">$10</div>
-                  </div>
-                  <div className="botTotal flexx">
-                    <div className="botTotal-left">Total</div>
-                    <div className="botTotal-right">$110</div>
-                  </div>
-                </div>
-                <button className="boxbtn">Book Now</button> */}
               </div>
             </div>
 
-            {/* <div className="hotelDetails">
-              <div className="hotelDetailsTexts">
-                <h1 className="hotelTitle">{data.title}</h1>
-                <p className="hotelDesc">{data.desc}</p>
-              </div>
-              <div className="hotelDetailsPrice">
-                <h1>Perfect for a {days}-night stay!</h1>
-                <span>
-                  Located in the real heart of Krakow, this property has an
-                  excellent location score of 9.8!
-                </span>
-                <h2>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
-                  nights)
-                </h2>
-                <button onClick={handleClick}>Reserve or Book Now!</button>
-              </div>
-            </div> */}
-            {/* <App_showRoom hotelId={id} /> */}
           </div>
           <div style={{ margin: "15px 0" }}></div>
 
-          {/* <Footer /> */}
+          <Footer />
 
         </div>
       )}
@@ -743,7 +679,6 @@ const Hotel = () => {
         <p>Bạn có chắc chắn muốn xác nhận thanh toán?</p>
       </Modal>
 
-      {/* {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>} */}
       {modal && <Modal />}
     </div>
   );

@@ -49,13 +49,6 @@ const Register = () => {
       label: "Phone",
       retuired:true
     },
-    // {
-    //   id: 4,
-    //   name: "birthday",
-    //   type: "date",
-    //   placeholder: "Birthday",
-    //   label: "Birthday",
-    // },
     {
       id:3,
       name:"country",

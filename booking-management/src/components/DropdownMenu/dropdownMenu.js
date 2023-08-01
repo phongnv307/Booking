@@ -38,11 +38,6 @@ function DropdownAvatar() {
           Trang cá nhân
         </a>
       </Menu.Item>
-      {/* <Menu.Item icon={<SettingOutlined />} >
-        <a target="_blank" rel="noopener noreferrer" >
-          Cài đặt
-        </a>
-      </Menu.Item> */}
       <Menu.Item key="3" icon={<LogoutOutlined />} onClick={Logout}  >
         <a target="_blank" rel="noopener noreferrer" >
           Thoát

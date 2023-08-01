@@ -154,19 +154,6 @@ export default class Slideshow extends React.Component {
                   {`${index + 1} / ${this.props.input.length}`}
                 </div> 
                 <img className="image-hotel" src={image.src} alt={image.caption} />
-               
-               
-               
-                {/* <video autoPlay muted playsInline loop className="backVideo">
-                  <source
-                    // src="https://t-cf.bstatic.com/video/WebcorePromoHeroAssets/DesktopHero/Hero_Desktop_2MB.mp4"
-                    src={image.src} alt= {image.caption}
-                    type="image"
-                  />
-                </video> */}
-
-
-                {/* <div className="caption-text">{image.caption}</div> */}
               </div>
             );
           })}
@@ -178,20 +165,6 @@ export default class Slideshow extends React.Component {
             ❯
           </span>
         </div>
-{/* 
-        <div className="dot-container">
-          {this.props.input.map((_, index) => {
-            return (
-              <span
-                key={index}
-                className={`dot ${
-                  this.state.slideIndex === index ? "active" : ""
-                }`}
-                onClick={() => this.setSlideIndex(index)}
-              ></span>
-            );
-          })}
-        </div> */}
       </div>
     );
   }

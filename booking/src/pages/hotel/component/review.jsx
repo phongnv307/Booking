@@ -26,11 +26,6 @@ function review({ review }) {
                 alt=""
               />
             </div>
-            {/* <div className="reviewContent">
-              <span>
-                {item[1]}
-              </span>
-            </div> */}
           </div>
           <div className="userInfor">
             <div className="userName">{titleCase(item.userName)}</div>

@@ -17,7 +17,6 @@ const Login = () => {
       name: "username",
       type: "text",
       placeholder: "User name",
-      // errorMessage: "It should be a valid email address!",
       label: "UserName",
       required: true,
     },
@@ -26,10 +25,7 @@ const Login = () => {
       name: "password",
       type: "password",
       placeholder: "Password",
-      // errorMessage:
-        // "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
       label: "Password",
-      // pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
       required: true,
     }
    ]
@@ -51,7 +47,6 @@ const Login = () => {
     
       const res = await axios.post("http://localhost:8800/api/auth/login", credentials,{ withCredentials: true });
       dispatch({ type: "LOGIN_SUCCESS", payload: {...res.data}});
-     // console.log(res.data)
       if(res.data.isAdmin){ 
 
         navigate("/admin")
@@ -66,11 +61,7 @@ const Login = () => {
   
 
   return (
-    <div className="login">
-      {/* <div className="listHeader">
-        <Navbar type="list" login="login" register="register"/>
-      </div> */}
-     
+    <div className="login">   
        <div className="login-app">
        <div className="loginTitle">
        <img src="https://png.pngtree.com/png-clipart/20220705/ourmid/pngtree-blink-bling-stars-cartoon-png-image_5683010.png" alt="" />

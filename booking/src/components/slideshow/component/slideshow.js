@@ -150,45 +150,18 @@ export default class Slideshow extends React.Component {
                   this.state.slideIndex === index ? "active" : ""
                 }`}
               >
-                {/* <div className="number-text">
-                  {`${index + 1} / ${this.props.input.length}`}
-                </div> */}
-                {/* <img className="image" src={image.src} alt={image.caption} /> */}
                 <video autoPlay muted playsInline loop className="backVideo">
                   <source
-                    // src="https://t-cf.bstatic.com/video/WebcorePromoHeroAssets/DesktopHero/Hero_Desktop_2MB.mp4"
                     src={image.src} alt= {image.caption}
                     type="video/mp4"
                   />
                 </video>
 
 
-                {/* <div className="caption-text">{image.caption}</div> */}
               </div>
             );
           })}
-
-          {/* <span className="prev" onClick={this.backward}>
-            ❮
-          </span>
-          <span className="next" onClick={this.forward}>
-            ❯
-          </span> */}
         </div>
-{/* 
-        <div className="dot-container">
-          {this.props.input.map((_, index) => {
-            return (
-              <span
-                key={index}
-                className={`dot ${
-                  this.state.slideIndex === index ? "active" : ""
-                }`}
-                onClick={() => this.setSlideIndex(index)}
-              ></span>
-            );
-          })}
-        </div> */}
       </div>
     );
   }

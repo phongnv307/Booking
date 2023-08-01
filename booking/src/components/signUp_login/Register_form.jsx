@@ -26,19 +26,7 @@ export default function Register() {
         const data = { email: email }
         setModal(!modal);
         
-    }
-// useEffect(
-//     ()=>{
-//         if(resData === email){
-//             setVerify(true)
-//             navigate("/register", {email: email,verified:verify})
-//         }
-
-
-//     },[resData])
-        
-
-    
+    }  
     
   return (
     <div className='regModal'>

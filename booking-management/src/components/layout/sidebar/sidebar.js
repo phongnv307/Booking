@@ -50,12 +50,6 @@ function Sidebar() {
       link: "/order-list",
       icon: <ShoppingCartOutlined />
     },
-    // {
-    //   key: "news-list",
-    //   title: "Tin tức",
-    //   link: "/news-list",
-    //   icon: <BarsOutlined />
-    // },
     {
       key: "order-rooms",
       title: "Quản Lý Đặt phòng",
@@ -157,31 +151,6 @@ function Sidebar() {
               ))
             }
           </>
-          {/* < SubMenu key="sub1" icon={<InsertRowBelowOutlined />} title="Event Censorship">
-            {menuSubEventAdmin.map((map) => (
-              <Menu.Item
-                onClick={() => navigate(map.link, map.key)}
-                key={map.key}
-                icon={map.icon}
-                className="customeClass"
-              >
-                {map.title}
-              </Menu.Item>
-            ))}
-          </SubMenu>
-
-          < SubMenu key="sub2" icon={<ProfileOutlined />} title="Event Management">
-            {menuSubEventStudentAdmin.map((map) => (
-              <Menu.Item
-                onClick={() => navigate(map.link, map.key)}
-                key={map.key}
-                icon={map.icon}
-                className="customeClass"
-              >
-                {map.title}
-              </Menu.Item>
-            ))}
-          </SubMenu> */}
         </Menu>
 
     </Sider >

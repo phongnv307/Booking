@@ -15,24 +15,6 @@ export const getAllStatistical = async (req, res, next) => {
         const hotelCountPromise = HotelModel.countDocuments();
         const tourCountPromise = TourModel.countDocuments();
         const orderCountPromise = BookingRoomModel.countDocuments();
-        // const currentDate = new Date();
-        // const last12Months = new Date(currentDate.setMonth(currentDate.getMonth() - 11));
-        // const orderCountPromise = OrderModel.aggregate([
-        //     {
-        //         $match: {
-        //             createdAt: {
-        //                 $gte: last12Months,
-        //                 $lte: new Date()
-        //             }
-        //         }
-        //     },
-        //     {
-        //         $group: {
-        //             _id: { $month: "$createdAt" },
-        //             total: { $sum: 1 }
-        //         }
-        //     }
-        // ]);
         const result = {};
         
         // Sử dụng Promise.all để chờ cả hai Promise hoàn thành
@@ -54,11 +36,6 @@ export const getAllStatistical = async (req, res, next) => {
                     { name: "Tháng 12", Total: 0 }
                 ];
 
-                // orderCount.forEach(item => {
-                //     const month = item._id;
-                //     const total = item.total;
-                //     data[month - 1].Total = total;
-                // });
 
                 const result = {
                     userTotal: userCount,
@@ -88,24 +65,6 @@ export const getAllStatisticalCompany = async (req, res, next) => {
         const userHotelCountPromise = HotelModel.countDocuments({ createdBy: userId });
         const userTourCountPromise = TourModel.countDocuments({ createdBy: userId });
         const userRoomsCountPromise = RoomModel.countDocuments({ createdBy: userId });
-        // const currentDate = new Date();
-        // const last12Months = new Date(currentDate.setMonth(currentDate.getMonth() - 11));
-        // const orderCountPromise = OrderModel.aggregate([
-        //     {
-        //         $match: {
-        //             createdAt: {
-        //                 $gte: last12Months,
-        //                 $lte: new Date()
-        //             }
-        //         }
-        //     },
-        //     {
-        //         $group: {
-        //             _id: { $month: "$createdAt" },
-        //             total: { $sum: 1 }
-        //         }
-        //     }
-        // ]);
         const result = {};
         // Sử dụng Promise.all để chờ cả hai Promise hoàn thành
         Promise.all([userHotelCountPromise, userTourCountPromise, userRoomsCountPromise])
@@ -125,12 +84,6 @@ export const getAllStatisticalCompany = async (req, res, next) => {
                     { name: "Tháng 11", Total: 0 },
                     { name: "Tháng 12", Total: 0 }
                 ];
-
-                // orderCount.forEach(item => {
-                //     const month = item._id;
-                //     const total = item.total;
-                //     data[month - 1].Total = total;
-                // });
 
                 const result = {
                     userTotal: 0,

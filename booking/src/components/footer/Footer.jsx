@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "./footer.css";
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";

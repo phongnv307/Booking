@@ -63,17 +63,4 @@ const Slider_Appp = () => {
   );
 };
 
-// console.log(dates);
-// const collectionn = [
-
-// {src: data.photos[0]},
-// {src: data.photos[1]},
-//   {src: data.photos[2]},
-//   {src: data.photos[3]},
-//   {src: data.photos[4]},
-//   {src: data.photos[5]},
-//   {src: data.photos[6]},
-
-//   ]
-
 export default Slider_Appp;

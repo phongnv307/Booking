@@ -519,9 +519,6 @@ const CategoryList = () => {
 
                     </Form>
                 </Modal>
-
-
-                {/* <Pagination style={{ textAlign: "center", marginBottom: 20 }} current={currentPage} defaultCurrent={1} total={total} onChange={handlePage}></Pagination> */}
                 <BackTop style={{ textAlign: 'right' }} />
             </Spin>
         </div >

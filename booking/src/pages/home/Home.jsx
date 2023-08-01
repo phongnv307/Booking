@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-// import { Swiper, SwiperSlide } from 'swiper/react';
 import UserContext from "../../globalState.js";
 
 import Featured from "../../components/featured/Featured";
@@ -63,7 +62,7 @@ const Home = () => {
           <h1 className="homeTitle">Browse by property type</h1>
           <PropertyList />
           <Why />
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
       {modal && <Modal />}

@@ -59,24 +59,12 @@ const Navbar = ({ type, register, login }) => {
   const handleClick = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGOUT" });
-    // try {
-    //   const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
-    //   dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-    //   navigate("/")
-    // } catch (err) {
-    //   dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
-    // }
   };
   return (
     <div className={type === "list" ? "Navbar nav-listMode" : "Navbar"}>
       <div className="navContainer">
         <Link to="/" className="logo-wrapper">
           <span className="logo" data-aos= "fade-down">Hoteloka</span>
-          {/* <img
-            className="img-logo"
-            src="https://cdn-icons-png.flaticon.com/512/6348/6348608.png"
-            alt=""
-          /> */}
         </Link>
 
         <div>

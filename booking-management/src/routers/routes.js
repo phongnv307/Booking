@@ -86,14 +86,6 @@ const DashBoard = lazy(() => {
         .then(([moduleExports]) => moduleExports);
 });
 
-const NewsList = lazy(() => {
-    return Promise.all([
-        import('../pages/News/news'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
 const Profile = lazy(() => {
     return Promise.all([
         import('../pages/Profile/profile'),
@@ -147,9 +139,6 @@ const RouterURL = withRouter(({ location }) => {
                 <Suspense fallback={<LoadingScreen />}>
                     <Login />
                 </Suspense>
-            </PublicRoute>
-            <PublicRoute exact path="/news-list">
-                <NewsList />
             </PublicRoute>
             <PublicRoute exact path="/login">
                 <Login />
@@ -218,11 +207,6 @@ const RouterURL = withRouter(({ location }) => {
                                 <RoomsList />
                             </Suspense>
                         </PrivateRoute>
-                        <PrivateRoute exact path="/news-list">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <NewsList />
-                            </Suspense>
-                        </PrivateRoute>
                         <PrivateRoute exact path="/order-list">
                             <Suspense fallback={<LoadingScreen />}>
                                 <OrderList />
@@ -252,9 +236,6 @@ const RouterURL = withRouter(({ location }) => {
                     </Route>
                     <Route exact path="/register">
                         <LoginContainer />
-                    </Route>
-                    <Route exact path="/news-list">
-                        <DefaultContainer />
                     </Route>
                     <Route exact path="/reset-password/:id">
                         <LoginContainer />

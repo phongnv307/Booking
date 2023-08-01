@@ -98,42 +98,6 @@ export const getHotels = async (req, res, next) => {
   }
 };
 
-// export const getHotels = async (req, res, next) => {
-//   const { min, max, city, type, featured, people } = req.query;
-
-//   let filterObj;
-//   if (city && type) {
-//     filterObj = {
-//       city,
-//       type,
-//       visible,
-//       cheapestPrice: { $gt: min || 1, $lt: max || 999 },
-//     };
-//   } else if (city && !type) {
-//     filterObj = {
-//       city,
-//       cheapestPrice: { $gt: min || 1, $lt: max || 999 },
-//     };
-//   } else if (!city && type) {
-//     filterObj = {
-//       type,
-//       cheapestPrice: { $gt: min || 1, $lt: max || 999 },
-//     };
-//   } else if (featured) {
-//     filterObj = { featured };
-//   }
-//   try {
-//     console.log(filterObj);
-//     const hotels = await Hotel.find({
-//       ...filterObj,
-
-//     }).limit(req.query.limit);
-//     res.status(200).json(hotels);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
 export const countByCity = async (req, res, next) => {
   const cities = req.query.cities.split(",");
   try {

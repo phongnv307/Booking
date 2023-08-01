@@ -1150,10 +1150,6 @@ const ProductList = () => {
 
                     </Form>
                 </Drawer>
-
-
-
-                {/* <Pagination style={{ textAlign: "center", marginBottom: 20 }} current={currentPage} defaultCurrent={1} total={totalEvent} onChange={handlePage}></Pagination> */}
                 <BackTop style={{ textAlign: 'right' }} />
             </Spin>
         </div >

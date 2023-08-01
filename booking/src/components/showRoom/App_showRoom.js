@@ -87,23 +87,7 @@ function App_showRoom({ hotelId }) {
       // navigate("/");
     } catch (err) {}
   };
-
-  // const handleChange = (event) => {
-  //   if (event.target.checked) {
-  //     setResult(result + parseInt(event.target.value));
-  //   } else {
-  //     setResult(result - parseInt(event.target.value));
-  //   }
-  //   setIsSubscribed((current) => !current);
-  // };
-  // useEffect(() => {
-  //   let handler = (e) => {
-  //     if (!menuRef.current.contains(e.target)) {
-  //       setOpen(false);
-  //       console.log(menuRef.current);
-  //     }
-  //   };
-  // });
+  
   console.log(data);
   return (
     <div className="App_showRoom">

@@ -10,7 +10,6 @@ const Schedule = ({ schedule }) => {
         {schedule?.map((item, ind) => (
           <>
             <span className="scheduleDay">
-              {/* <img className="highlightImg" src={daynImg} alt="" /> */}
               Day {ind + 1}
             </span>
             <li>{item}</li>

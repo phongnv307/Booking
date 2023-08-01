@@ -20,20 +20,6 @@ export const getTours = async (req, res, next) => {
   }
 };
 
-// export const createTour = async (req, res, next) => {
-//   const { title,photos,price,address,rating,desc,text,schedule,hightlight,trip,time,departure,destination,vehicles} = req.body;
-//   const createdBy = req.user.id; // Lấy ID của người dùng hiện tại từ xác thực
-//   const tour = new Tour({title,photos,price,address,rating,desc,text,schedule,hightlight,trip,time,departure,destination,vehicles,createdBy});
-  
-//   tour.save()
-//   .then((createdTour) => {
-//     res.status(201).json(createdTour);
-//   })
-//   .catch((error) => {
-//     res.status(500).json({ error: "Failed to create tour" });
-//   });
-// };
-
 export const createTour = async (req, res, next) => {
   const decodedToken = jwt.verify(req.headers.authorization, process.env.JWT);
   const createdBy = decodedToken.id;

@@ -7,8 +7,6 @@ export const parseToken = (req, res, next) => {
     if (err) return next(createError(403, "Token is not valid!"));
     req.body.email = data.email;
     console.log(data.email);
-    // console.log(req.email);
-    // console.log(req.body);
     next();
   });
 };

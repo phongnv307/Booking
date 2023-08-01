@@ -42,11 +42,6 @@ const List = () => {
       room: 1,
     }
   );
-  // if(city ==='city'){
-
-  // }
-
-  //const [url, setUrl] = useState('')
 
   const [type, setType] = useState(location.state.acType || "");
   const [openDate, setOpenDate] = useState(false);
@@ -208,24 +203,6 @@ const List = () => {
                   <option value="homestay">Homestay</option>
                 </select>
               </div>
-              {/* <Tippy content={message} trigger= "click" className="search-tooltip" theme={'light'} animation={'shift-away'} > 
-              
-              <span ref={tipsRef} ></span>
-            </Tippy> */}
-              {/* <div className="lsItem">
-                <label>Check-in Date</label>
-                <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                  date[0]?.startDate,
-                  "dd/MM/yyyy"
-                )} to ${format(date[0]?.endDate, "dd/MM/yyyy")}`}</span>
-                {openDate && (
-                  <DateRange
-                    onChange={(item) => setDate([item.selection])}
-                    minDate={new Date()}
-                    ranges={date}
-                  />
-                )}
-              </div> */}
 
               <div className="lsItem">
                 <label>Options</label>
@@ -239,33 +216,6 @@ const List = () => {
                       setMax(max);
                     }}
                   />
-                  {/* <div className="lsOptionItem">
-                    <span className="lsOptionText">Adult</span>
-                    <input
-                      type="number"
-                      min={1}
-                      className="lsOptionInput"
-                      placeholder={options.adult}
-                    />
-                  </div>
-                  <div className="lsOptionItem">
-                    <span className="lsOptionText">Children</span>
-                    <input
-                      type="number"
-                      min={0}
-                      className="lsOptionInput"
-                      placeholder={options.children}
-                    />
-                  </div>
-                  <div className="lsOptionItem">
-                    <span className="lsOptionText">Room</span>
-                    <input
-                      type="number"
-                      min={1}
-                      className="lsOptionInput"
-                      placeholder={options.room}
-                    />
-                  </div> */}
                 </div>
               </div>
               <button onClick={handleSearch}>Search</button>
@@ -286,7 +236,7 @@ const List = () => {
       </div>
       <div style={{ "margin-top": "15px" }}></div>
       <div style={{ "margin-top": "20px" }}>
-        {/* <Footer /> */}
+        <Footer />
       </div>
       {modal && <Modal />}
       <GoToTop />

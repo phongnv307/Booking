@@ -12,7 +12,7 @@ import QRCode from 'qrcode.react';
 import userApi from "../../apis/userApi";
 import { useHistory } from 'react-router-dom';
 import { DateTime } from "../../utils/dateTime";
-import ReactWeather, { useOpenWeather } from 'react-open-weather';
+import { useOpenWeather } from 'react-open-weather';
 
 
 const { confirm } = Modal;
@@ -112,18 +112,6 @@ const Profile = () => {
                                     </Row>
                                 </Card>
                             </Col>
-
-                            {/* <Col span="6" style={{ marginTop: 20 }}>
-                            <ReactWeather
-                                    isLoading={isLoading}
-                                    errorMessage={errorMessage}
-                                    data={data}
-                                    lang="en"
-                                    locationLabel="Đà Nẵng"
-                                    unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-                                    showForecast
-                                />
-                            </Col> */}
                         </Row>
                     </div>
                 </div>

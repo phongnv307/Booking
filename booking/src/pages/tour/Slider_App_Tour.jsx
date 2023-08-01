@@ -11,7 +11,6 @@ import App_showRoom from "../../components/showRoom/App_showRoom.js";
 import UserContext from "../../globalState.js";
 
 import Slideshow from "./component/slideshow.js";
-// import Slideshow from '../../components/slideshow/component/slideshow';
 let img1 =
   "https://ik.imagekit.io/tvlk/image/imageResource/2017/05/10/1494407528373-a0e2c450b5cfac244d687d6fa8f5dd98.png?tr=h-150,q-75,w-150";
 let img2 =

@@ -27,53 +27,7 @@ const Tour = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
-  // const dataa = [
-  //   {
-  //     id: 1,
-  //     img: "https://booking.pystravel.vn/uploads/posts/avatar/1575277501.jpg",
-  //     title: " ",
-  //     address: " Ha Giang",
-  //     mark: "9.9",
-  //     text: "Very Good",
-  //     price: 900,
-  //   },
-  //   {
-  //     id: 2,
-  //     img: "https://static-images.vnncdn.net/files/publish/2022/10/12/du-lich-phu-quoc-thang-10-1338.jpg",
-  //     title: " Tour du lịch Phu Quoc",
-  //     address: " Phu Quoc ",
-  //     mark: "8.8",
-  //     text: "Very Good",
-  //     price: 860,
-  //   },
-  //   {
-  //     id: 3,
-  //     img: "https://media.baodautu.vn/Images/chicuong/2022/06/24/16-Bana_Hilss.jpg",
-  //     title: " Tour du lịch Da Nang Cao Bằng 5 ngày 4 đêm từ TP HCM trọn gói",
-  //     address: " Da Nang",
-  //     mark: "8.9",
-  //     text: "Very Good",
-  //     price: 780,
-  //   },
-  //   {
-  //     id: 4,
-  //     img: "https://booking.pystravel.vn/uploads/posts/avatar/1575277501.jpg",
-  //     title: " Tour du lịch Hà Giang Cao Bằng 5 ngày 4 đêm từ TP HCM trọn gói",
-  //     address: " Ha Giang",
-  //     mark: "9",
-  //     text: "Very Good",
-  //     price: 900,
-  //   },
-  //   {
-  //     id: 5,
-  //     img: "https://booking.pystravel.vn/uploads/posts/avatar/1575277501.jpg",
-  //     title: " Tour du lịch Hà Giang Cao Bằng 5 ngày 4 đêm từ TP HCM trọn gói",
-  //     address: " Ha Giang",
-  //     mark: "9",
-  //     text: "Very Good",
-  //     price: 900,
-  //   },
-  // ];
+  
   const settings = {
     dots: true,
     infinite: false,
@@ -113,12 +67,6 @@ const Tour = () => {
     <div className="tourContainer">
       <div className="tour">
         <div className="tourTitle" data-aos="fade-up">
-          {/* <img
-            src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/hot-icon.png"
-            alt=""
-          /> */}
-          {/* <img src="https://www.freeiconspng.com/thumbs/travel-icon/travel-icon--be-found-online-9.png" alt="" /> */}
-
           <img
             src="https://www.andamandreamdestination.com/images/logo/Andaman-Dream-Destination.png"
             alt=""

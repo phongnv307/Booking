@@ -128,7 +128,8 @@ export const bookingRooms = async (req, res) => {
     const existingBooking = await BookingRooms.count({
       room: roomId,
       checkInDate: { $lte: new Date(checkOutDate) },
-      checkOutDate: { $gte: new Date(checkInDate) }
+      checkOutDate: { $gte: new Date(checkInDate) }, 
+      status:"approved"
     });
 
     if (existingBooking >= rooms.roomQuantity) {

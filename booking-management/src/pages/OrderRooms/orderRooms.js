@@ -279,7 +279,7 @@ const OrderRooms = () => {
             dataIndex: 'status',
             render: (slugs) => (
                 <span >
-                    {slugs === "rejected" ? <Tag style={{ width: 90, textAlign: "center" }} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag style={{ width: 90, textAlign: "center" }} color="geekblue" key={slugs}>
+                    {slugs === "rejected" ? <Tag style={{ width: 90, textAlign: "center" }} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag style={{ width: 90, textAlign: "center" }} color="green" key={slugs}>
                         Đã xác nhận
                     </Tag> : slugs === "final" ? <Tag color="green" style={{ width: 90, textAlign: "center" }}>Đã trả phòng</Tag> : <Tag color="blue" style={{ width: 90, textAlign: "center" }}>Đợi xác nhận</Tag>}
                 </span>
@@ -345,7 +345,7 @@ const OrderRooms = () => {
             dataIndex: 'status',
             render: (slugs) => (
                 <span >
-                    {slugs === "rejected" ? <Tag style={{ width: 90, textAlign: "center" }} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag style={{ width: 90, textAlign: "center" }} color="geekblue" key={slugs}>
+                    {slugs === "rejected" ? <Tag style={{ width: 90, textAlign: "center" }} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag style={{ width: 90, textAlign: "center" }} color="green" key={slugs}>
                        Đã xác nhận
                     </Tag> : slugs === "final" ? <Tag color="green" style={{ width: 90, textAlign: "center" }}>Đã trả phòng</Tag> : <Tag color="blue" style={{ width: 90, textAlign: "center" }}>Đợi xác nhận</Tag>}
                 </span>
@@ -572,9 +572,8 @@ const OrderRooms = () => {
                             style={{ marginBottom: 10 }}
                         >
                             <Select >
-                                <Option value="final">Đã trả phòng</Option>
-                                <Option value="approved">Đã xác nhận</Option>
                                 <Option value="pending">Đợi xác nhận</Option>
+                                <Option value="approved">Đã xác nhận</Option>
                                 <Option value="rejected">Đã hủy</Option>
                             </Select>
                         </Form.Item>

@@ -201,14 +201,14 @@ const Hotel = () => {
               notification["error"]({
                 message: `Thông báo`,
                 description:
-                  'Booking phòng thất bại',
+                  'Đặt phòng thất bại',
               });
             }
             else {
               notification["success"]({
                 message: `Thông báo`,
                 description:
-                  'Booking phòng thành công',
+                  'Bạn đã đặt phòng thành công, nhân viên sẽ sớm liên hệ với bạn để hoàn tất giao dịch',
               });
 
               setTotalCost(0);

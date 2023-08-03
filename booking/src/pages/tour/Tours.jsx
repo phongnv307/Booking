@@ -113,7 +113,7 @@ const Tours = () => {
             notification["success"]({
               message: `Thông báo`,
               description:
-                'Booking tours thành công',
+                'Bạn đã đặt tour thành công, nhân viên sẽ sớm liên hệ với bạn để hoàn tất giao dịch',
             });
           }
           setModalVisible(false);
@@ -195,7 +195,7 @@ const Tours = () => {
               notification["success"]({
                 message: `Thông báo`,
                 description:
-                  'Booking tours thành công',
+                  'Bạn đã đặt tour thành công, nhân viên sẽ sớm liên hệ với bạn để hoàn tất giao dịch',
               });
             }
           })

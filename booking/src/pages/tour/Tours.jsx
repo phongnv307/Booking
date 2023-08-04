@@ -60,6 +60,7 @@ const Tours = () => {
         const tourPrice = data.price; 
         const totalPrice = tourPrice * people;
         setTotalCost(totalPrice);
+        localStorage.setItem("totalCost", totalPrice);
       
     }).catch((error) => {
       console.error("Lỗi xử lý promise:", error);
@@ -68,6 +69,21 @@ const Tours = () => {
   };
 
   const handleOkUser = async (values) => {
+    localStorage.setItem("description", values.bookingDetails);
+    localStorage.setItem("departureDate", values.departureDate);
+    localStorage.setItem("people", values.people);
+
+    const local = localStorage.getItem("user");
+    const currentUser = JSON.parse(local);
+
+    if (!currentUser) {
+      return notification["error"]({
+        message: `Thông báo`,
+        description: 'Bạn phải đăng nhập trước khi thực hiện đặt tour!',
+      });
+    }
+
+
     if (values.paymentMethod === "paypal") {
       localStorage.setItem("description", values.bookingDetails);
       try {
@@ -130,7 +146,7 @@ const Tours = () => {
     const currentUser = JSON.parse(local);
     try {
       const tourPayment = {
-        price: "800",
+        price: localStorage.getItem("totalCost"),
         description: values.bookingDetails,
         return_url: "http://localhost:3005" + location.pathname,
         cancel_url: "http://localhost:3005" + location.pathname
@@ -177,7 +193,10 @@ const Tours = () => {
             tourId: id,
             bookingDetails: description,
             userId: currentUser.details._id,
-            billing: "paypal"
+            billing: "paypal",
+            departureDate: localStorage.getItem("departureDate"),
+            people: localStorage.getItem("people"),
+            total: localStorage.getItem("totalCost"),
           };
           return axios.post("http://localhost:8800/api/tours/book", tourData).then(response => {
             if (response === undefined) {

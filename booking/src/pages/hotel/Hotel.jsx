@@ -227,7 +227,7 @@ const Hotel = () => {
     const currentUser = JSON.parse(local);
     try {
       const tourPayment = {
-        price: "800",
+        price: localStorage.getItem("totalCost"),
         description: values.bookingDetails,
         return_url: "http://localhost:3005" + location.pathname,
         cancel_url: "http://localhost:3005" + location.pathname
@@ -295,7 +295,7 @@ const Hotel = () => {
               notification["success"]({
                 message: `Thông báo`,
                 description:
-                  'Booking rooms thành công',
+                  'Bạn đã đặt phòng thành công, nhân viên sẽ sớm liên hệ với bạn để hoàn tất giao dịch',
               });
             }
           })

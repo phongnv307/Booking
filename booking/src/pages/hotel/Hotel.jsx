@@ -547,6 +547,8 @@ const Hotel = () => {
                 <div className="boxMid">
                   <h3 style={{fontWeight: "bold"}}>Introduction of accommodation</h3>
                   <p style={{width: "331px"}} dangerouslySetInnerHTML={{ __html: data.desc }}/>
+                  <h3 style={{fontWeight: "bold"}}>Phone Number:</h3>
+                  <p style={{fontSize: "25px"}}>{ data.phone }</p>
                 </div>
               </div>
             </div>

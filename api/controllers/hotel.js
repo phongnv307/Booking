@@ -3,13 +3,13 @@ import Room from "../models/Room.js";
 import jwt from "jsonwebtoken";
 
 export const createHotel = async (req, res, next) => {
-  const { name, type, city, address, photos, title, desc, rating, rooms, cheapestPrice, review, visible, utilities } = req.body;
+  const { name, phone, type, city, address, photos, title, desc, rating, rooms, cheapestPrice, review, visible, utilities } = req.body;
   const decodedToken = jwt.verify(req.headers.authorization, process.env.JWT);
   const createdBy = decodedToken.id
   console.log(decodedToken);
 
   try {
-    const hotel = await Hotel.create({ createdBy, name, type, city, address, photos, title, desc, rating, rooms, cheapestPrice, review, visible, utilities });
+    const hotel = await Hotel.create({ createdBy, phone, name, type, city, address, photos, title, desc, rating, rooms, cheapestPrice, review, visible, utilities });
     await Room.updateMany(
       { _id: { $in: rooms } }, 
       { $set: { booked: true } } 

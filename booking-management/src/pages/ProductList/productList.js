@@ -120,6 +120,7 @@ const ProductList = () => {
         try {
             const categoryList = {
                 "name": user.username,
+                "phone": user.phone,
                 "type": values.type,
                 "city": values.city,
                 "address": values.address,
@@ -161,6 +162,7 @@ const ProductList = () => {
         try {
             const categoryList = {
                 "name": user.username,
+                "phone": user.phone,
                 "type": values.type,
                 "city": values.city,
                 "address": values.address,

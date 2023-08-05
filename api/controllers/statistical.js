@@ -65,11 +65,28 @@ export const getAllStatisticalCompany = async (req, res, next) => {
         const userHotelCountPromise = HotelModel.countDocuments({ createdBy: userId });
         const userTourCountPromise = TourModel.countDocuments({ createdBy: userId });
         const userRoomsCountPromise = RoomModel.countDocuments({ createdBy: userId });
+
+        const bookings = await BookingRoomModel.find()
+        .populate({
+        path: 'room',
+        match: { createdBy: req.user.id },
+        populate: { path: 'createdBy', model: 'User' },
+        })
+        .populate('user');
+
+        const userOrderCountFilter = bookings.filter(
+        (booking) => booking.room !== null 
+        );
+
+        const userOrderCountPromise = userOrderCountFilter.length;
+
+        console.log("userOrderCountPromise", userOrderCountPromise)
+
         const result = {};
         // Sử dụng Promise.all để chờ cả hai Promise hoàn thành
-        Promise.all([userHotelCountPromise, userTourCountPromise, userRoomsCountPromise])
+        Promise.all([userHotelCountPromise, userTourCountPromise, userRoomsCountPromise, userOrderCountPromise])
             .then((results) => {
-                const [hotelCount, tourCount, roomsCount] = results;
+                const [hotelCount, tourCount, roomsCount, orderCount] = results;
                 const data = [
                     { name: "Tháng 1", Total: 0 },
                     { name: "Tháng 2", Total: 0 },
@@ -90,7 +107,7 @@ export const getAllStatisticalCompany = async (req, res, next) => {
                     hotelTotal: hotelCount,
                     tourTotal: tourCount,
                     roomsTotal: roomsCount,
-                    orderTotal: 0,
+                    orderTotal: orderCount,
                     data
                 };
                 res.status(200).json({ data: result });

@@ -34,6 +34,7 @@ const Hotel = () => {
   const [form] = Form.useForm();
   const [showModal, setShowModal] = useState(false);
   const [roomId, setRoomsId] = useState(null);
+  const [roomQuantity, setRoomQuantity] = useState(0);
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const queryParams = new URLSearchParams(location.search);
@@ -42,6 +43,7 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [totalCost, setTotalCost] = useState(0);
+  const [availableRooms, setAvailableRooms] = useState(0);
 
   const { data, loading, error } = useFetch(
     `http://localhost:8800/api/hotels/find/${id}`
@@ -61,13 +63,13 @@ const Hotel = () => {
       remainingQuantityByType[typeRooms] = remainingQuantity;
     }
   });
-  console.log("remainingQuantityByType");
+  // console.log("remainingQuantityByType");
 
-  console.log(remainingQuantityByType);
+  // console.log(remainingQuantityByType);
 
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(dates);
+  // console.log(dates);
   // console.log(data.review[0])
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1, date2) {
@@ -119,7 +121,7 @@ const Hotel = () => {
   const [price, setPrice] = useState(0);
   const handleBooking = (room) => {
     const user = localStorage.getItem("user");
-    console.log(user);
+    // console.log(user);
     if (user === null) {
       return notification["success"]({
         message: `Thông báo`,
@@ -127,6 +129,7 @@ const Hotel = () => {
       });
     } else {
       setRoomsId(room._id);
+      setRoomQuantity(room.roomQuantity);
       localStorage.setItem("roomId", room._id);
       localStorage.setItem("price", room.price);
       setPrice(room.price);
@@ -189,7 +192,7 @@ const Hotel = () => {
           total: totalCost
         };
         return axios.post("http://localhost:8800/api/rooms/book", tourData).then(response => {
-          console.log(response);
+          // console.log(response);
           if (response.data.message === "Room is already booked for the selected dates") {
             return notification["error"]({
               message: `Thông báo`,
@@ -369,7 +372,7 @@ const Hotel = () => {
   };
 
   const handleDateChange = () => {
-    form.validateFields(['checkInDate', 'checkOutDate']).then((values) => {
+    form.validateFields(['checkInDate', 'checkOutDate']).then(async (values) => {
       const { checkInDate, checkOutDate } = values;
       if (checkInDate && checkOutDate && moment(checkInDate).isValid() && moment(checkOutDate).isValid()) {
         const numDays = checkOutDate.diff(checkInDate, 'days');
@@ -377,6 +380,9 @@ const Hotel = () => {
         const totalPrice = cheapestPrice * numDays;
         setTotalCost(totalPrice);
         localStorage.setItem("totalCost", totalPrice);
+        const bookedRoom = await axios.get(`http://localhost:8801/api/booking-rooms/available-room?roomId=${roomId}&checkInDate=${Date.parse(checkInDate)}&checkOutDate=${Date.parse(checkOutDate)}`);
+        const availableRooms = roomQuantity - bookedRoom.data;
+        setAvailableRooms(availableRooms);
       } else {
         console.log("Vui lòng chọn cả ngày check-in và check-out");
       }
@@ -651,6 +657,8 @@ const Hotel = () => {
             <DatePicker style={{ width: '100%' }} onChange={handleDateChange}/>
           </Form.Item>
 
+          <h5 style={{ marginBottom: 10 }}>Số phòng còn lại: {availableRooms}</h5>
+
           <Form.Item
             name="paymentMethod"
             label="Phương thức thanh toán"
@@ -670,8 +678,7 @@ const Hotel = () => {
           </Form.Item>
 
           
-
-          <p style={{ marginBottom: 10 }}>Tổng tiền: {totalCost} USD</p>
+          <p style={{ marginBottom: 10 }}>Tổng tiền: {availableRooms?totalCost:0} USD</p>
         </Form>
       </Modal>
 

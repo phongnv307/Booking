@@ -14,6 +14,7 @@ import { useHistory } from 'react-router-dom';
 import { DateTime } from "../../utils/dateTime";
 import ProductList from '../ProductList/productList';
 import axiosClient from '../../apis/axiosClient';
+import axios from "axios";
 
 const { Option } = Select;
 const { confirm } = Modal;
@@ -112,6 +113,17 @@ const OrderRooms = () => {
 
         } catch (error) {
             throw error;
+        }
+
+        if(values.status == "approved")
+         {
+            try {
+                const response = await orderApi.getDetailsBookingRoom(id);
+                console.log(response);
+                const alo = await axios.post('http://localhost:8801/api/booking-rooms/book', response);
+            } catch (error) {
+                throw error;
+            }
         }
     }
 

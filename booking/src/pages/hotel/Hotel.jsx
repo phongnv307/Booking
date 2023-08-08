@@ -193,7 +193,7 @@ const Hotel = () => {
         };
         return axios.post("http://localhost:8800/api/rooms/book", tourData).then(response => {
           // console.log(response);
-          if (response.data.message === "Room is already booked for the selected dates") {
+          if (availableRooms == 0) {
             return notification["error"]({
               message: `Thông báo`,
               description:

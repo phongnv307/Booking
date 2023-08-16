@@ -21,7 +21,7 @@ import UserContext from "../../globalState.js";
 import Modal2 from "../../components/modal/modal.jsx";
 import Slider_Appp from "./Slider_App.jsx";
 import Review from "./component/review.jsx";
-import { List, Card, Modal, Button, Form, Input, notification, Radio, Rate, DatePicker, Row, Col } from 'antd';
+import { List, Card, Modal, Button, Form, Input, notification, Radio, Rate, DatePicker, Row, Col, InputNumber } from 'antd';
 import axios from "axios";
 import MapComponent from "../../components/mapComponent/googleMap";
 import moment from 'moment';
@@ -655,6 +655,20 @@ const Hotel = () => {
             style={{ marginBottom: 10 }}
           >
             <DatePicker style={{ width: '100%' }} onChange={handleDateChange}/>
+          </Form.Item>
+
+          <Form.Item
+            name="roomNumber"
+            label="Số phòng"
+            rules={[
+              {
+                required: true,
+                message: 'Vui lòng nhập số phòng',
+              },
+            ]}
+            style={{ marginBottom: 10 }}
+          >
+            <InputNumber/>
           </Form.Item>
 
           <h5 style={{ marginBottom: 10 }}>Số phòng còn lại: {availableRooms}</h5>
